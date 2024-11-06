@@ -1,3 +1,4 @@
+import { adaptGames } from "../adapters/adaptGames";
 import {
   API_KEY,
   BASE_URL,
@@ -6,15 +7,14 @@ import {
   ORDERING,
 } from "../constants/constants";
 
-export const fetchGames2024 = async () => {
+export const fetchGames = async () => {
   try {
     const response = await fetch(
-      `${BASE_URL}?dates=${DATE_RANGE}&ordering=${ORDERING}&page_size=10000&key=${API_KEY}`
-      // `${BASE_URL}?ordering=-metacritic=0,100&dates=2022-01-01,2024-12-31&key=${API_KEY}`
+      `${BASE_URL}?key=${API_KEY}&dates=${DATE_RANGE}&ordering=${ORDERING}&page_size=40`
     );
     const json = await response.json();
-    console.log(json);
-    return json.results;
+
+    return json.results.map((game) => adaptGames(game));
   } catch (error) {
     throw new Error(error.message || FETCH_GAMES_ERROR_MESSAGE);
   }

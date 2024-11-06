@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { GAMES_LOADING_ERROR_MESSAGE } from "../constants/constants";
-import { fetchGames2024 } from "../services/games";
+import { fetchGames } from "../services/games";
 
 export const useFetchGames = () => {
   const [games, setGames] = useState([]);
@@ -11,7 +11,7 @@ export const useFetchGames = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const gamesData = await fetchGames2024();
+      const gamesData = await fetchGames();
       setGames(gamesData);
     } catch (err) {
       setError(GAMES_LOADING_ERROR_MESSAGE);

@@ -14,7 +14,7 @@ export default function GameList() {
   if (error) {
     return <ErrorMessage message={error} onRetry={refetch} />;
   }
-
+  console.log({ games });
   return (
     <div className="games-container">
       <div className="games-grid">
