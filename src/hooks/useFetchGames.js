@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { fetchGames2024 } from "../services/games";
+import { GAMES_LOADING_ERROR_MESSAGE } from "../constants/constants";
 
 export const useFetchGames = () => {
   const [games, setGames] = useState([]);
@@ -13,13 +14,12 @@ export const useFetchGames = () => {
       const gamesData = await fetchGames2024();
       setGames(gamesData);
     } catch (err) {
-      setError(
-        "No pudimos cargar los juegos en este momento. Por favor, verifica tu conexión a internet e intenta nuevamente."
-      );
+      setError(GAMES_LOADING_ERROR_MESSAGE);
+      console.log(err);
     } finally {
       setIsLoading(false);
     }
-  }, []); 
+  }, []);
 
   useEffect(() => {
     loadGames();

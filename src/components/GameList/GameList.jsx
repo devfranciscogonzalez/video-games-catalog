@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
-import { fetchGames2024 } from "../../services/games";
+import { useFetchGames } from "../../hooks/useFetchGames";
+import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import { GameCard } from "../GameCard/GameCard";
 import { Loader } from "../Loader/Loader";
-import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import "./GameList.css";
-import { useFetchGames } from "../../hooks/useFetchGames";
 
 export const GameList = () => {
   const { games, isLoading, error, refetch } = useFetchGames();

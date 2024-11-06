@@ -1,19 +1,19 @@
-const API_KEY = import.meta.env.VITE_API_KEY;
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+import {
+  API_KEY,
+  BASE_URL,
+  DATE_RANGE,
+  FETCH_GAMES_ERROR_MESSAGE,
+  ORDERING,
+} from "../constants/constants";
 
 export const fetchGames2024 = async () => {
   try {
     const response = await fetch(
-      `${BASE_URL}?dates=2024-01-01,2024-12-31&ordering=-metacritic&key=${API_KEY}`
+      `${BASE_URL}?dates=${DATE_RANGE}&ordering=${ORDERING}&key=${API_KEY}`
     );
-    if (!response.ok) {
-      throw new Error(`Error HTTP: ${response.status}`);
-    }
     const json = await response.json();
     return json.results;
   } catch (error) {
-    throw new Error(
-      error.message || "Ocurrió un error al obtener los datos de los juegos"
-    );
+    throw new Error(error.message || FETCH_GAMES_ERROR_MESSAGE);
   }
 };
