@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import "./GameCard.css";
 
 export const GameCard = ({ game }) => {
- 
   const getMetacriticClass = (score) => {
     if (score >= 85) return "metacritic-high";
     if (score >= 70) return "metacritic-medium";
     return "metacritic-low";
   };
+  console.log(game);
 
   return (
     <div className="game-card">
