@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { fetchGames2024 } from "../services/games";
 import { GAMES_LOADING_ERROR_MESSAGE } from "../constants/constants";
+import { fetchGames2024 } from "../services/games";
 
 export const useFetchGames = () => {
   const [games, setGames] = useState([]);

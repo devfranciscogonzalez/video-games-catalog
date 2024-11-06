@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./GameCard.css";
 
-export const GameCard = ({ game }) => {
+export default function GameCard({ game }) {
   const getMetacriticClass = (score) => {
     if (score >= 85) return "metacritic-high";
     if (score >= 70) return "metacritic-medium";
@@ -38,7 +38,7 @@ export const GameCard = ({ game }) => {
       </div>
     </div>
   );
-};
+}
 
 GameCard.propTypes = {
   game: PropTypes.shape({

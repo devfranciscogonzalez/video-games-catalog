@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types';
-import './ErrorMessage.css';
+import PropTypes from "prop-types";
+import "./ErrorMessage.css";
 
-export const ErrorMessage = ({ message, onRetry }) => {
+export default function ErrorMessage({ message, onRetry }) {
   return (
     <div className="error-container">
       <div className="error-icon">
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          width="48" 
-          height="48" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
           strokeWidth="2"
         >
           <circle cx="12" cy="12" r="10"></circle>
@@ -22,18 +22,15 @@ export const ErrorMessage = ({ message, onRetry }) => {
       <h2 className="error-title">¡Ups! Algo salió mal</h2>
       <p className="error-message">{message}</p>
       {onRetry && (
-        <button 
-          className="error-retry-button"
-          onClick={onRetry}
-        >
+        <button className="error-retry-button" onClick={onRetry}>
           Intentar de nuevo
         </button>
       )}
     </div>
   );
-};
+}
 
 ErrorMessage.propTypes = {
   message: PropTypes.string.isRequired,
-  onRetry: PropTypes.func
+  onRetry: PropTypes.func,
 };

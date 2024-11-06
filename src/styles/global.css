@@ -3,9 +3,11 @@
   padding: 0;
 }
 
-*,*::before,*::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-} 
+}
 
 :root {
   font-size: 100%;
@@ -13,10 +15,13 @@
 }
 
 body {
-  font-family: 'Lexend Variable', sans-serif;
+  font-family: "Lexend Variable", sans-serif;
+  background: hsl(210deg 5.26% 7.45%);
+  color: hsl(0deg 0% 100%);
 }
 
-input, button {
+input,
+button {
   font: inherit;
 }
 
@@ -24,11 +29,17 @@ p {
   text-wrap: pretty;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
-img, svg {
+img,
+svg {
   max-width: 100%;
   height: auto;
 }

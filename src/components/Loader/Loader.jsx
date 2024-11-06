@@ -1,6 +1,6 @@
 import "./Loader.css";
 
-export const Loader = () => {
+export default function Loader() {
   return (
     <div className="loader-container">
       <div className="loader">
@@ -11,4 +11,4 @@ export const Loader = () => {
       <p className="loader-text">Cargando juegos...</p>
     </div>
   );
-};
+}
