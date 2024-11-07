@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import "./GameCard.css";
+import { useNavigate } from "react-router-dom";
 
 export default function GameCard({ game }) {
   const getMetacriticClass = (score) => {
@@ -8,8 +9,14 @@ export default function GameCard({ game }) {
     return "metacritic-low";
   };
 
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/games/${game.id}`);
+  };
+
   return (
-    <div className="game-card">
+    <div className="game-card" onClick={handleCardClick}>
       <img src={game.backgroundImage} alt={game.name} className="game-image" />
       <div className="game-info">
         <h2 className="game-title">{game.name}</h2>
@@ -41,6 +48,7 @@ export default function GameCard({ game }) {
 
 GameCard.propTypes = {
   game: PropTypes.shape({
+    id: PropTypes.number,
     name: PropTypes.string,
     backgroundImage: PropTypes.string,
     releaseDate: PropTypes.string,
