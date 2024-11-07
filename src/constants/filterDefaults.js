@@ -1,4 +1,4 @@
-export const INITIAL_YEAR = "2023";
+export const INITIAL_YEAR = "";
 export const INITIAL_GENRE = "";
 export const INITIAL_PLATFORM = "";
 export const INITIAL_TAG = "";

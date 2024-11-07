@@ -55,7 +55,6 @@ const FilterPanel = ({ onFilter }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-    console.log({ name, value });
   };
 
   if (loading) return <p>Cargando opciones...</p>;
