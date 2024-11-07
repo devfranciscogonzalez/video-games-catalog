@@ -15,7 +15,7 @@ export default function GameCard({ game }) {
         <h2 className="game-title">{game.name}</h2>
         <div className="game-details">
           <span className="release-date">
-            Release: {new Date(game.released).toLocaleDateString()}
+            Release: {new Date(game.releaseDate).toLocaleDateString()}
           </span>
           {game.metacritic && (
             <span
@@ -43,7 +43,7 @@ GameCard.propTypes = {
   game: PropTypes.shape({
     name: PropTypes.string,
     backgroundImage: PropTypes.string,
-    released: PropTypes.string,
+    releaseDate: PropTypes.string,
     metacritic: PropTypes.number,
     genres: PropTypes.arrayOf(
       PropTypes.shape({

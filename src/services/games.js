@@ -1,20 +1,24 @@
-import { adaptGames } from "../adapters/adaptGames";
-import {
-  API_KEY,
-  BASE_URL,
-  DATE_RANGE,
-  FETCH_GAMES_ERROR_MESSAGE,
-  ORDERING,
-} from "../constants/constants";
+import { FETCH_GAMES_ERROR_MESSAGE } from "../constants/constants";
+import { httpClient } from "./httpClient";
 
-export const fetchGames = async () => {
+export const fetchGames = async ({ year, genre, platform, tag, developer }) => {
+  const baseParams = {
+    dates: `${year}-01-01,${year}-12-31`,
+    ordering: "-metacritic",
+    page_size: 40,
+  };
+
+  const params = {
+    ...baseParams,
+    ...(genre && { genres: genre }),
+    ...(platform && { platforms: platform }),
+    ...(tag && { tags: tag }),
+    ...(developer && { developers: developer }),
+  };
+  // console.log(params);
   try {
-    const response = await fetch(
-      `${BASE_URL}?key=${API_KEY}&dates=${DATE_RANGE}&ordering=${ORDERING}&page_size=40`
-    );
-    const json = await response.json();
-
-    return json.results.map((game) => adaptGames(game));
+    const { data } = await httpClient.get("/games", { params });
+    return data.results;
   } catch (error) {
     throw new Error(error.message || FETCH_GAMES_ERROR_MESSAGE);
   }

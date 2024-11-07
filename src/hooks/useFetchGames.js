@@ -1,34 +1,34 @@
 import { useCallback, useEffect, useState } from "react";
+import adaptGames from "../adapters/adaptGames";
 import { GAMES_LOADING_ERROR_MESSAGE } from "../constants/constants";
 import { fetchGames } from "../services/games";
 
-export const useFetchGames = () => {
+export const useFetchGames = (filters) => {
   const [games, setGames] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const loadGames = useCallback(async () => {
+  const getGames = useCallback(async () => {
+    setLoading(true);
+    setError(null);
     try {
-      setIsLoading(true);
-      setError(null);
-      const gamesData = await fetchGames();
-      setGames(gamesData);
-    } catch (err) {
+      const gamesData = await fetchGames(filters);
+      setGames(adaptGames(gamesData));
+    } catch (error) {
       setError(GAMES_LOADING_ERROR_MESSAGE);
-      console.log(err);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
-  }, []);
+  }, [filters]);
 
   useEffect(() => {
-    loadGames();
-  }, [loadGames]);
+    getGames();
+  }, [getGames]);
 
   return {
     games,
-    isLoading,
+    loading,
     error,
-    refetch: loadGames,
+    refetch: getGames,
   };
 };
