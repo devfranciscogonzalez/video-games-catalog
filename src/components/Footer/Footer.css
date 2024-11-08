@@ -1,4 +1,4 @@
-.navbar-header {
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   background-color: var(--color-background);
 }
 
-.navbar-layout {
+.footer-layout {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,16 +16,4 @@
   max-width: var(--max-width-container);
   margin: auto;
   padding: 0 var(--padding-medium);
-}
-
-.navbar-logo {
-  cursor: pointer;
-  width: 42px;
-  height: 42px;
-  transition: scale var(--transition-duration) var(--transition-timing-function);
-}
-
-.navbar-logo:hover {
-  opacity: 0.8;
-  scale: 1.1;
 }

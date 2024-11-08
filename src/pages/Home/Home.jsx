@@ -14,6 +14,7 @@ import {
 } from "../../constants/filterDefaults";
 import { useFetchGames } from "../../hooks/useFetchGames";
 import "./Home.css";
+import Footer from "../../components/Footer/Footer";
 
 export default function Home() {
   const [filters, setFilters] = useState({
@@ -63,6 +64,7 @@ export default function Home() {
           onPageChange={handlePageChange}
         /> */}
       </main>
+      <Footer />
     </>
   );
 }
