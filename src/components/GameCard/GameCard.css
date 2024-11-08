@@ -1,30 +1,50 @@
 .game-card {
-  background-color: #ffffff;
+  position: relative;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .game-card:hover {
   transform: scale(1.03);
+  box-shadow: 0 0 12px 2px #f443366e;
 }
-
+/* En fotografía, en cambio, las proporciones más usadas son 4∶3 y 3∶2, aunque también encontramos 5∶4, 7∶5 y 1∶1 (cuadrado). */
 .game-image {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
+  aspect-ratio: 4/3;
 }
 
 .game-info {
-  padding: 16px;
+  position: absolute;
+  width: 100%;
+  padding: 8px;
+  /* inset: 0px; */
+  bottom: 0px;
+  /* background: rgba(0, 0, 0, 0.3); */
+  background: linear-gradient(rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 1) 100%);
 }
 
+.game-info::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(14px);
+  /* z-index: -1; */
+  }
+
 .game-title {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
   margin: 0 0 12px 0;
-  color: #333;
+  
 }
 
 .game-details {
@@ -35,19 +55,22 @@
 }
 
 .release-date {
-  color: #666;
+  /* color: #666; */
   font-size: 0.9rem;
 }
 
 .metacritic-score {
-  padding: 4px 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 8px;
   border-radius: 4px;
   font-weight: bold;
   color: white;
 }
 
 .metacritic-high {
-  background-color: #4caf50;
+  background-color: hsla(122, 39%, 49%, 0.8);
 }
 
 .metacritic-medium {

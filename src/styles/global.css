@@ -17,7 +17,14 @@
 body {
   font-family: "Lexend Variable", sans-serif;
   background: hsl(210deg 5.26% 7.45%);
-  color: hsl(0deg 0% 100%);
+  color: hsl(20deg 0% 100%);
+  background-image: radial-gradient(
+      circle at 0% 20%,
+      rgba(255, 0, 0, 0.2),
+      transparent 30%
+    ),
+    radial-gradient(circle at 80% 50%, rgba(255, 0, 0, 0.2), transparent 30%),
+    radial-gradient(circle at 30% 90%, rgba(255, 0, 0, 0.2), transparent 30%);
 }
 
 input,

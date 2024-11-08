@@ -12,7 +12,6 @@ const SelectFilterYear = ({
     for (let year = endYear; year >= startYear; year--) {
       years.push(year);
     }
-    console.log(years);
     return years;
   };
   return (

@@ -11,9 +11,9 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import GameCard from "../GameCard/GameCard";
 import Loader from "../Loader/Loader";
-import Pagination from "../Pagination/Pagination";
-import SearchPanel from "../SearchPanel/SearchPanel";
 import "./GameList.css";
+import SearchPanel from "../SearchPanel/SearchPanel";
+import Pagination from "../Pagination/Pagination";
 
 export default function GameList() {
   const [filters, setFilters] = useState({

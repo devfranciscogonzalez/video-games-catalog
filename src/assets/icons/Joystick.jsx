@@ -1,8 +1,8 @@
-const Joystick = () => {
+const Joystick = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="100"
+      width="50"
       viewBox="0 0 24 24"
       fill="none"
       stroke="#ff0000"
@@ -10,6 +10,7 @@ const Joystick = () => {
       strokeLinecap="round"
       strokeLinejoin="round"
       className="lucide lucide-gamepad-2"
+      {...props}
     >
       <line x1="6" x2="10" y1="11" y2="11" />
       <line x1="8" x2="8" y1="9" y2="13" />

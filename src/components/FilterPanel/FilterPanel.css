@@ -3,12 +3,13 @@
   gap: 1rem;
   flex-wrap: wrap;
   padding: 2rem 1rem;
-  border: 1px solid #fff;
+  border: 1px solid #f0050527;
   border-radius: 8px;
   margin-bottom: 1.5rem;
 
     /* Fondo con desenfoque */
-    background: rgba(255, 0, 0, 0.6); 
+    /* background: rgba(255, 255, 255, 0.1);  */
+    background: transparent;
     backdrop-filter: blur(15px); 
     -webkit-backdrop-filter: blur(10px); 
 }

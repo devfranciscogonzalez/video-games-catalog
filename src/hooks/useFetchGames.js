@@ -3,24 +3,29 @@ import adaptGames from "../adapters/adaptGames";
 import { GAMES_LOADING_ERROR_MESSAGE } from "../constants/constants";
 import { fetchGames } from "../services/games";
 
-export const useFetchGames = (filters, searchText = "") => {
+export const useFetchGames = (filters, searchText = "", page) => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log({ searchText: searchText });
-  console.log({ filters: filters });
+  const [totalPages, setTotalPages] = useState(1);
+
   const getGames = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
-      const gamesData = await fetchGames({...filters, searchText});
+      const { games: gamesData, totalPages } = await fetchGames({
+        ...filters,
+        searchText,
+        page
+      });
       setGames(adaptGames(gamesData));
+      setTotalPages(totalPages);
     } catch (error) {
-      setError(GAMES_LOADING_ERROR_MESSAGE);
+      setError(error.message || GAMES_LOADING_ERROR_MESSAGE);
     } finally {
       setLoading(false);
     }
-  }, [filters, searchText]);
+  }, [filters, searchText, page]);
 
   useEffect(() => {
     getGames();
@@ -28,6 +33,7 @@ export const useFetchGames = (filters, searchText = "") => {
 
   return {
     games,
+    totalPages,
     loading,
     error,
     refetch: getGames,

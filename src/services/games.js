@@ -8,12 +8,14 @@ export const fetchGames = async ({
   tag,
   developer,
   searchText,
+  page = 1,
 }) => {
   const baseParams = {
     ordering: "-metacritic",
-    page_size: 40,
     search_precise: true,
     search_exact: true,
+    page_size: 20,
+    page: page,
   };
 
   const params = {
@@ -28,8 +30,11 @@ export const fetchGames = async ({
 
   try {
     const { data } = await httpClient.get("/games", { params });
-    return data.results;
+    return {
+      games: data.results,
+      totalPages: Math.ceil(data.count / baseParams.page_size),
+    };
   } catch (error) {
-    throw new Error(error.message || FETCH_GAMES_ERROR_MESSAGE);
+    throw new Error(FETCH_GAMES_ERROR_MESSAGE || error.message);
   }
 };

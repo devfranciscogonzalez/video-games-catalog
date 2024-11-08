@@ -16,14 +16,10 @@ export default function GameCard({ game }) {
   };
 
   return (
-    <div className="game-card" onClick={handleCardClick}>
+    <a className="game-card" onClick={handleCardClick}>
       <img src={game.backgroundImage} alt={game.name} className="game-image" />
-      <div className="game-info">
-        <h2 className="game-title">{game.name}</h2>
-        <div className="game-details">
-          <span className="release-date">
-            Release: {new Date(game.releaseDate).toLocaleDateString()}
-          </span>
+      <div className="game-details">
+          {/* <span className="release-date">Lanzamiento: {game.releaseDate}</span> */}
           {game.metacritic && (
             <span
               className={`metacritic-score ${getMetacriticClass(
@@ -34,15 +30,18 @@ export default function GameCard({ game }) {
             </span>
           )}
         </div>
-        <div className="genre-list">
+      <div className="game-info">
+        <h2 className="game-title">{game.name}</h2>
+     
+        {/* <div className="genre-list">
           {game.genres?.map((genre) => (
             <span key={genre.id} className="genre-tag">
               {genre.name}
             </span>
           ))}
-        </div>
+        </div> */}
       </div>
-    </div>
+    </a>
   );
 }
 
