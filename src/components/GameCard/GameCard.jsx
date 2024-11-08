@@ -1,14 +1,9 @@
 import PropTypes from "prop-types";
 import "./GameCard.css";
 import { useNavigate } from "react-router-dom";
+import Score from "../Score/Score";
 
 export default function GameCard({ game }) {
-  const getMetacriticClass = (score) => {
-    if (score >= 75) return "metacritic-high";
-    if (score >= 50) return "metacritic-medium";
-    return "metacritic-low";
-  };
-
   const navigate = useNavigate();
 
   const handleCardClick = () => {
@@ -19,28 +14,14 @@ export default function GameCard({ game }) {
     <a className="game-card" onClick={handleCardClick}>
       <img src={game.backgroundImage} alt={game.name} className="game-image" />
       <div className="game-details">
-          {/* <span className="release-date">Lanzamiento: {game.releaseDate}</span> */}
-          {game.metacritic && (
-            <span
-              className={`metacritic-score ${getMetacriticClass(
-                game.metacritic
-              )}`}
-            >
-              {game.metacritic}
-            </span>
-          )}
-        </div>
-      <div className="game-info">
-        <h2 className="game-title">{game.name}</h2>
-     
-        {/* <div className="genre-list">
-          {game.genres?.map((genre) => (
-            <span key={genre.id} className="genre-tag">
-              {genre.name}
-            </span>
-          ))}
-        </div> */}
+        {game.metacritic && <Score score={game.metacritic} />}
       </div>
+      <footer className="game-info">
+        <div>
+          <h2 className="game-title">{game.name}</h2>
+        </div>
+        <span className="game-date">{game.releaseDate}</span>
+      </footer>
     </a>
   );
 }
@@ -60,3 +41,13 @@ GameCard.propTypes = {
     ),
   }).isRequired,
 };
+
+{
+  /* <div className="genre-list">
+          {game.genres?.map((genre) => (
+            <span key={genre.id} className="genre-tag">
+              {genre.name}
+            </span>
+          ))}
+        </div> */
+}

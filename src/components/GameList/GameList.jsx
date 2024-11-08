@@ -5,9 +5,9 @@ import "./GameList.css";
 export default function GameList({ games }) {
   return (
     <section className="games-container">
-        {games.map((game) => (
-          <GameCard key={game.id} game={game} />
-        ))}
+      {games.map((game) => (
+        <GameCard key={game.id} game={game} />
+      ))}
     </section>
   );
 }

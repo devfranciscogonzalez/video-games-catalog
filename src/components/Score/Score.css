@@ -1,0 +1,20 @@
+.metacritic-score {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: var(--padding-small);
+  border-radius: var(--border-radius);
+  font-weight: bold;
+}
+
+.metacritic-high {
+  background-color: hsla(122, 39%, 49%, 0.8);
+}
+
+.metacritic-medium {
+  background-color: #ffc107;
+}
+
+.metacritic-low {
+  background-color: #f44336;
+}
