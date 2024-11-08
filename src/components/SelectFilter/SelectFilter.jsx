@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "./SelectFilter.css";
 
 const SelectFilter = ({
   label,
@@ -8,17 +9,17 @@ const SelectFilter = ({
   placeholder = "Todos",
 }) => {
   return (
-    <label>
-      {label}:
-      <select name={name} onChange={handleChange}>
-        <option value="">{placeholder}</option>
-        {options.map(({ id, name }) => (
-          <option key={id} value={id}>
-            {name}
-          </option>
-        ))}
-      </select>
-    </label>
+    <select name={name} onChange={handleChange} className="select-filter">
+      <option value="" disabled selected>
+        {label}
+      </option>
+      <option value="">{placeholder}</option>
+      {options.map(({ id, name }) => (
+        <option key={id} value={id}>
+          {name}
+        </option>
+      ))}
+    </select>
   );
 };
 

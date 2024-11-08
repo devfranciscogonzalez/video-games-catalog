@@ -11,6 +11,7 @@ import { fetchFilterOptions } from "../../services/filter";
 import SelectFilter from "../SelectFilter/SelectFilter";
 import SelectFilterYear from "../SelectFilter/SelectFilterYear";
 import "./FilterPanel.css";
+import Filter from "../../assets/icons/Filter";
 
 const FilterPanel = ({ onFilter }) => {
   const [options, setOptions] = useState({
@@ -61,40 +62,45 @@ const FilterPanel = ({ onFilter }) => {
   if (error) return <p>{error}</p>;
 
   return (
-    <form className="filter-panel" onSubmit={handleSubmit}>
-      <SelectFilterYear
-        label="Año"
-        name="year"
-        startYear={2000}
-        endYear={2024}
-        handleChange={handleChange}
-      />
-      <SelectFilter
-        label="Género"
-        name="genre"
-        handleChange={handleChange}
-        options={options.genres}
-      />
-      <SelectFilter
-        label="Plataforma"
-        name="platform"
-        handleChange={handleChange}
-        options={options.platforms}
-      />
-      <SelectFilter
-        label="Tag"
-        name="tag"
-        handleChange={handleChange}
-        options={options.tags}
-      />
-      <SelectFilter
-        label="Desarrolladora"
-        name="developer"
-        handleChange={handleChange}
-        options={options.developers}
-      />
-
-      <button type="submit">Filtrar</button>
+    <form onSubmit={handleSubmit}>
+      <fieldset className="filter-panel">
+        <legend>Panel de Filtrado</legend>
+        <SelectFilterYear
+          label="Año"
+          name="year"
+          startYear={2000}
+          endYear={2024}
+          handleChange={handleChange}
+        />
+        <SelectFilter
+          label="Género"
+          name="genre"
+          handleChange={handleChange}
+          options={options.genres}
+        />
+        <SelectFilter
+          label="Plataforma"
+          name="platform"
+          handleChange={handleChange}
+          options={options.platforms}
+        />
+        <SelectFilter
+          label="Tag"
+          name="tag"
+          handleChange={handleChange}
+          options={options.tags}
+        />
+        <SelectFilter
+          label="Desarrolladora"
+          name="developer"
+          handleChange={handleChange}
+          options={options.developers}
+        />
+        <button type="submit" className="filter-panel-button">
+          <Filter width={16} />
+          Filtrar
+        </button>
+      </fieldset>
     </form>
   );
 };

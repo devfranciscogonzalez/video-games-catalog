@@ -1,5 +1,4 @@
 export default function adaptGames(gamesData) {
-  console.log(gamesData);
   if (!Array.isArray(gamesData)) {
     console.error("Los datos de juegos no son un array:", gamesData);
     return [];
@@ -14,7 +13,6 @@ export default function adaptGames(gamesData) {
           year: 'numeric',
         })
       : 'Fecha no disponible';
-        console.log(formattedDate);
     return {
       id: game.id,
       name: game.name,
