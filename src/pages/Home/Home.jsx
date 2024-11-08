@@ -41,9 +41,9 @@ export default function Home() {
     setSearchText(newSearchText);
   };
 
-  // const handlePageChange = (newPage) => {
-  //   setCurrentPage(newPage);
-  // };
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   if (loading) {
     return <Loader />;
@@ -58,11 +58,11 @@ export default function Home() {
       <main className="home-container">
         <FilterPanel onFilter={handleFilter} />
         <GameList games={games} />
-        {/* <Pagination
+        <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
-        /> */}
+        />
       </main>
       <Footer />
     </>

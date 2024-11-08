@@ -1,26 +1,30 @@
 import PropTypes from "prop-types";
-import "./GameCard.css";
 import { useNavigate } from "react-router-dom";
+import defaultImage from "../../assets/images/no-image.svg";
 import Score from "../Score/Score";
+import "./GameCard.css";
 
 export default function GameCard({ game }) {
   const navigate = useNavigate();
+  const { id, name, backgroundImage, releaseDate, metacritic } = game;
 
   const handleCardClick = () => {
-    navigate(`/games/${game.id}`);
+    navigate(`/games/${id}`);
   };
 
   return (
     <a className="game-card" onClick={handleCardClick}>
-      <img src={game.backgroundImage} alt={game.name} className="game-image" />
-      <div className="game-details">
-        {game.metacritic && <Score score={game.metacritic} />}
-      </div>
+      <img
+        src={backgroundImage || defaultImage}
+        alt={name || "Imagen no disponible"}
+        className="game-image"
+      />
+      {metacritic && <Score score={metacritic} />}
       <footer className="game-info">
         <div>
-          <h2 className="game-title">{game.name}</h2>
+          <h2 className="game-title">{name}</h2>
         </div>
-        <span className="game-date">{game.releaseDate}</span>
+        <span className="game-date">{releaseDate}</span>
       </footer>
     </a>
   );
@@ -33,12 +37,6 @@ GameCard.propTypes = {
     backgroundImage: PropTypes.string,
     releaseDate: PropTypes.string,
     metacritic: PropTypes.number,
-    genres: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        name: PropTypes.string,
-      })
-    ),
   }).isRequired,
 };
 
