@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import "./SearchPanel.css";
 import Search from "../../assets/icons/Search";
+import "./SearchPanel.css";
 
 const SearchPanel = ({ onSearch }) => {
   const [formData, setFormData] = useState("");
@@ -25,7 +25,7 @@ const SearchPanel = ({ onSearch }) => {
         className="search-input"
       />
       <button type="submit" className="search-button">
-        <Search width={14} />
+        <Search width={14} height={14} />
       </button>
     </form>
   );

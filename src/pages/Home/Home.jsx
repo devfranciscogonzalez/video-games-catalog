@@ -1,6 +1,10 @@
-import GameList from "../../components/GameList/GameList";
-import NavBar from "../../components/NavBar/NavBar";
 import { useState } from "react";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import FilterPanel from "../../components/FilterPanel/FilterPanel";
+import GameList from "../../components/GameList/GameList";
+import Loader from "../../components/Loader/Loader";
+import NavBar from "../../components/NavBar/NavBar";
+import Pagination from "../../components/Pagination/Pagination";
 import {
   INITIAL_DEVELOPER,
   INITIAL_GENRE,
@@ -9,10 +13,7 @@ import {
   INITIAL_YEAR,
 } from "../../constants/filterDefaults";
 import { useFetchGames } from "../../hooks/useFetchGames";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import FilterPanel from "../../components/FilterPanel/FilterPanel";
-import Loader from "../../components/Loader/Loader";
-import Pagination from "../../components/Pagination/Pagination";
+import "./Home.css";
 
 export default function Home() {
   const [filters, setFilters] = useState({
@@ -39,9 +40,9 @@ export default function Home() {
     setSearchText(newSearchText);
   };
 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
+  // const handlePageChange = (newPage) => {
+  //   setCurrentPage(newPage);
+  // };
 
   if (loading) {
     return <Loader />;
@@ -53,15 +54,15 @@ export default function Home() {
   return (
     <>
       <NavBar handleSearch={handleSearch} />
-      <div className="games-container">
+      <main className="home-container">
         <FilterPanel onFilter={handleFilter} />
         <GameList games={games} />
-        <Pagination
+        {/* <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
-        />
-      </div>
+        /> */}
+      </main>
     </>
   );
 }

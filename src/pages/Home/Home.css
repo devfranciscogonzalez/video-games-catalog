@@ -1,0 +1,6 @@
+.home-container {
+  width: 100%;
+  max-width: var(--max-width-container);
+  margin: var(--margin-large) auto;
+  padding: 0 var(--padding-medium);
+}

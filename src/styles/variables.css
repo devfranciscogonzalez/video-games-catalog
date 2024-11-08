@@ -1,13 +1,20 @@
 :root {
   /* Color Variables */
+  --color-primary: hsl(0, 100%, 50%);
+  --color-secondary: hsl(0, 0%, 0%);
+  --color-tertiary: hsla(0, 96%, 48%, 0.1);
+  --color-text: hsl(0, 0%, 100%);
 
   --color-background: hsl(0, 0%, 0%);
-  --color-text: hsl(20deg 0% 100%);
-  --color-accent-rgba: hsla(0, 100%, 50%, 0.3);
+
   --color-background-secondary: hsl(0, 100%, 50%);
   --color-background-secondary-hover: hsla(0, 100%, 50%, 0.7);
 
-    /* Color Focus */
+  --color-bacground-tertiary: hsla(0, 96%, 48%, 0.1);
+
+  --color-accent-rgba: hsla(0, 100%, 50%, 0.3);
+
+  /* Color Focus */
   --color-focus: hsl(0, 100%, 50%);
 
   /* Font Variables */
@@ -17,14 +24,17 @@
   --font-size-medium: 1rem;
 
   /* Layout Variables */
-  --spacing-unit: 1rem;
-  --border-radius: 4px;
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 1.5rem;
+
+  --border-radius: 8px;
 
   /* Breakpoints */
-  --breakpoint-sm: 480px;
+  /* --breakpoint-sm: 480px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1200px;
+  --breakpoint-xl: 1200px; */
 
   /* Max Width */
   --max-width-container: 1024px;
@@ -44,6 +54,6 @@
   --height-navbar-large: 5rem;
 
   /* Transition Variables */
-  --transition-duration: 0.3s;
+  --transition-duration: 0.2s;
   --transition-timing-function: ease-in-out;
 }

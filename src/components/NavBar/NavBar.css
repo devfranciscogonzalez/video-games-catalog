@@ -20,5 +20,11 @@
 
 .logo {
   cursor: pointer;
-  height: 50px;
+  height: 42px;
+  transition: scale var(--transition-duration) var(--transition-timing-function);
+}
+
+.logo:hover {
+  opacity: 0.8;
+  scale: 1.1;
 }

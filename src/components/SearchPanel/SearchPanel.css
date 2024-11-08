@@ -16,24 +16,17 @@
 
 .search-button {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: var(--height-button-small);
   padding: 0px var(--padding-small);
   border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+  color: var(--color-text);
   background-color: var(--color-background-secondary);
   border: none;
   cursor: pointer;
-  margin: 0px;
-  color: var(--color-text);
 }
 
 .search-button:hover {
   background-color: var(--color-background-secondary-hover);
-}
-
-@media (max-width: var(--breakpoint-md)) {
-  .search-input {
-    height: var(--height-button-small);
-    
-  }
 }

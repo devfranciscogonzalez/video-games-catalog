@@ -1,7 +1,12 @@
 .select-filter {
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 100%;
-  font-size: .75rem;
+  height: var(--height-button-small);
+  padding: 0px var(--padding-small);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-root);
+  cursor: pointer;
+  display: flex;
+}
+
+.select-filter:focus-visible {
+  outline-color: var(--color-focus);
 }

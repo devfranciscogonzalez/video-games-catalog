@@ -9,8 +9,13 @@ const SelectFilter = ({
   placeholder = "Todos",
 }) => {
   return (
-    <select name={name} onChange={handleChange} className="select-filter">
-      <option value="" disabled selected>
+    <select
+      name={name}
+      onChange={handleChange}
+      className="select-filter"
+      defaultValue=""
+    >
+      <option value="" disabled>
         {label}
       </option>
       <option value="">{placeholder}</option>
