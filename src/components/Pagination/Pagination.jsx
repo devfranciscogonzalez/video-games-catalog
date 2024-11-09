@@ -4,7 +4,7 @@ import Next from "../../assets/icons/Next";
 import "./Pagination.css";
 
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
-  const maxPagesToShow = 10;
+  const maxPagesToShow = 8;
 
   let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
   let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
@@ -28,9 +28,6 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       >
         <Previous width={14} height={14} />
       </button>
-
-      {startPage > 1 && <button onClick={() => handlePageClick(1)}>1</button>}
-      {startPage > 2 && <span>...</span>}
       {[...Array(endPage - startPage + 1).keys()].map((num) => (
         <button
           key={num + startPage}
@@ -40,12 +37,6 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
           {num + startPage}
         </button>
       ))}
-      {endPage < totalPages - 1 && <span>...</span>}
-      {endPage < totalPages && (
-        <button onClick={() => handlePageClick(totalPages)}>
-          {totalPages}
-        </button>
-      )}
       <button
         onClick={() => handlePageClick(currentPage + 1)}
         disabled={currentPage === totalPages}

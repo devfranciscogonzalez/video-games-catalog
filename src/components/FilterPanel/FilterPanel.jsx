@@ -38,11 +38,10 @@ const FilterPanel = ({ onFilter }) => {
       try {
         setLoading(true);
         setError(null);
-        // throw new Error("Error al cargar opciones de filtro");
         const data = await fetchFilterOptions();
         setOptions(data);
       } catch (err) {
-        setError("Error al cargar opciones de filtro");
+        setError("Error al cargar opciones de filtros");
         console.log(err);
       } finally {
         setLoading(false);
@@ -62,12 +61,14 @@ const FilterPanel = ({ onFilter }) => {
   };
 
   if (loading) return;
-  if (error) return
+
+  if (error) {
+    return <ErrorMessage message={error} />;
+  }
 
   return (
     <form onSubmit={handleSubmit}>
       <fieldset className="filter-panel">
-
         <legend>Panel de Filtrado</legend>
         <SelectFilterYear
           label="Año"

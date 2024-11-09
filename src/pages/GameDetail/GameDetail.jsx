@@ -63,18 +63,18 @@ export default function GameDetail() {
           </p>
           <h2>Fecha de Lanzamiento</h2>
           <p className="release">{gameDetail.releaseDate}</p>
-          <h2>Plataforma:</h2>
+          <h2>Plataforma</h2>
           <p className="platforms">
             {gameDetail.platforms
               .map((platform) => platform.platform.name)
               .join(", ")}
           </p>
-          <h2>Metacritic Score:</h2>
+          <h2>Metacritic Score</h2>
           <p className="score"> {gameDetail.metacritic}</p>
         </div>
         <div className="detail-info description">
           <div className="detail-description-layout">
-            <h2>Descripción:</h2>
+            <h2>Descripción</h2>
             <p>{gameDetail.description}</p>
           </div>
         </div>

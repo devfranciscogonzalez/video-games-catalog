@@ -2,9 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100dvh;
-  width: 100dvw;
-  background-color: rgba(0, 0, 0, 0.5);
+  margin: auto;
 }
 
 .loader {

@@ -16,7 +16,7 @@ export const useFetchGames = (filters, searchText = "", page) => {
       const { games: gamesData, totalPages } = await fetchGames({
         ...filters,
         searchText,
-        page
+        page,
       });
       setGames(adaptGames(gamesData));
       setTotalPages(totalPages);
@@ -36,6 +36,5 @@ export const useFetchGames = (filters, searchText = "", page) => {
     totalPages,
     loading,
     error,
-    refetch: getGames,
   };
 };

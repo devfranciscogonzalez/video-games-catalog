@@ -27,7 +27,7 @@ export default function Home() {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { games, totalPages, loading, error, refetch } = useFetchGames(
+  const { games, totalPages, loading, error } = useFetchGames(
     filters,
     searchText,
     currentPage
@@ -45,25 +45,25 @@ export default function Home() {
     setCurrentPage(newPage);
   };
 
-  if (loading) {
-    return <Loader />;
-  }
 
-  if (error) {
-    return <ErrorMessage message={error} onRetry={refetch} />;
-  }
-
+  
   return (
     <div className="home-layout">
       <NavBar handleSearch={handleSearch} />
       <main className="home-container">
-        <FilterPanel onFilter={handleFilter} />
-        <GameList games={games} />
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
+        {loading && <Loader />}
+        {error && <ErrorMessage message={error} />}
+        {!loading && !error && (
+          <>
+            <FilterPanel onFilter={handleFilter} />
+            <GameList games={games} />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </>
+        )}
       </main>
       <Footer />
     </div>
