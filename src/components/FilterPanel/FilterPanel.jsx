@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   INITIAL_YEAR,
   INITIAL_DEVELOPER,
@@ -7,20 +7,15 @@ import {
   INITIAL_PLATFORM,
   INITIAL_TAG,
 } from "../../constants/filterDefaults";
-import { fetchFilterOptions } from "../../services/filter";
 import SelectFilter from "../SelectFilter/SelectFilter";
 import SelectFilterYear from "../SelectFilter/SelectFilterYear";
 import "./FilterPanel.css";
 import Filter from "../../assets/icons/Filter";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import { useFetchFilterOption } from "../../hooks/useFetchFilterOption";
 
 const FilterPanel = ({ onFilter }) => {
-  const [options, setOptions] = useState({
-    genres: [],
-    platforms: [],
-    tags: [],
-    developers: [],
-  });
+  const { options, loading, error } = useFetchFilterOption();
 
   const [formData, setFormData] = useState({
     year: INITIAL_YEAR,
@@ -29,26 +24,6 @@ const FilterPanel = ({ onFilter }) => {
     tag: INITIAL_TAG,
     developer: INITIAL_DEVELOPER,
   });
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const loadFilterOptions = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const data = await fetchFilterOptions();
-        setOptions(data);
-      } catch (err) {
-        setError("Error al cargar opciones de filtros");
-        console.log(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadFilterOptions();
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
