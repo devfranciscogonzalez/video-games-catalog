@@ -19,8 +19,6 @@ export default function GameDetail() {
   if (!game) {
     return <p>Loading...</p>;
   }
-  console.log(game);
-
   return (
     <div className="game-detail">
       <img

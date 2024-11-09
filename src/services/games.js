@@ -30,6 +30,7 @@ export const fetchGames = async ({
 
   try {
     const { data } = await httpClient.get("/games", { params });
+    console.log(data.count);
     return {
       games: data.results,
       totalPages: Math.ceil(data.count / baseParams.page_size),

@@ -18,11 +18,11 @@
 
 .select-filter::-webkit-scrollbar-track {
   background: hsl(0, 0%, 64%);
-  border-radius: var(--border-radius-base);
+  border-radius: var(--border-radius);
 }
 
 .select-filter::-webkit-scrollbar-thumb {
-  background-color: hsl(0, 0%, 15%);
+  background-color: var(--color-background);
   border-radius: 10px;
   border: 2px solid hsl(0, 0%, 64%);
 }

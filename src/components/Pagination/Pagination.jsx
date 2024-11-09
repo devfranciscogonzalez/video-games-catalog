@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
+import Previous from "../../assets/icons/Previous";
+import Next from "../../assets/icons/Next";
 import "./Pagination.css";
 
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
-  const maxPagesToShow = 10; 
+  const maxPagesToShow = 10;
 
-  const startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-  const endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+  let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+  let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
   if (endPage - startPage + 1 < maxPagesToShow) {
     startPage = Math.max(1, endPage - maxPagesToShow + 1);
@@ -22,12 +24,12 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       <button
         onClick={() => handlePageClick(currentPage - 1)}
         disabled={currentPage === 1}
+        className="pagination-motion"
       >
-        Previous
+        <Previous width={14} height={14} />
       </button>
-      {startPage > 1 && (
-        <button onClick={() => handlePageClick(1)}>1</button>
-      )}
+
+      {startPage > 1 && <button onClick={() => handlePageClick(1)}>1</button>}
       {startPage > 2 && <span>...</span>}
       {[...Array(endPage - startPage + 1).keys()].map((num) => (
         <button
@@ -47,8 +49,9 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
       <button
         onClick={() => handlePageClick(currentPage + 1)}
         disabled={currentPage === totalPages}
+        className="pagination-motion"
       >
-        Next
+        <Next width={14} height={14} />
       </button>
     </div>
   );

@@ -53,7 +53,7 @@ export default function Home() {
     return <ErrorMessage message={error} onRetry={refetch} />;
   }
   return (
-    <>
+    <div className="home-layout">
       <NavBar handleSearch={handleSearch} />
       <main className="home-container">
         <FilterPanel onFilter={handleFilter} />
@@ -65,6 +65,6 @@ export default function Home() {
         />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
