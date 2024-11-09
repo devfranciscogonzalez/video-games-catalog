@@ -52,6 +52,7 @@ export default function Home() {
   if (error) {
     return <ErrorMessage message={error} onRetry={refetch} />;
   }
+
   return (
     <div className="home-layout">
       <NavBar handleSearch={handleSearch} />

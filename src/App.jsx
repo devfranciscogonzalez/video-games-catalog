@@ -1,20 +1,18 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
-import GameDetail from "./pages/GameDetail/GameDetail";
-import Home from "./pages/Home/Home";
 import "./styles/global.css";
+import { Home, GameDetail, ErrorPage } from "./pages";
 
 const router = createBrowserRouter(
   [
     {
       path: "/",
       element: <Home />,
-      errorElement: <ErrorMessage />,
+      errorElement: <ErrorPage />,
     },
     {
       path: "/games/:gameId",
       element: <GameDetail />,
-      errorElement: <ErrorMessage />,
+      errorElement: <ErrorPage />,
     },
   ],
   {

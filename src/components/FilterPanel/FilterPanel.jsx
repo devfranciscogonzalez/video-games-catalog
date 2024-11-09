@@ -12,6 +12,7 @@ import SelectFilter from "../SelectFilter/SelectFilter";
 import SelectFilterYear from "../SelectFilter/SelectFilterYear";
 import "./FilterPanel.css";
 import Filter from "../../assets/icons/Filter";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const FilterPanel = ({ onFilter }) => {
   const [options, setOptions] = useState({
@@ -28,6 +29,7 @@ const FilterPanel = ({ onFilter }) => {
     tag: INITIAL_TAG,
     developer: INITIAL_DEVELOPER,
   });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -36,6 +38,7 @@ const FilterPanel = ({ onFilter }) => {
       try {
         setLoading(true);
         setError(null);
+        // throw new Error("Error al cargar opciones de filtro");
         const data = await fetchFilterOptions();
         setOptions(data);
       } catch (err) {
@@ -58,12 +61,13 @@ const FilterPanel = ({ onFilter }) => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  if (loading) return <p>Cargando opciones...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return;
+  if (error) return
 
   return (
     <form onSubmit={handleSubmit}>
       <fieldset className="filter-panel">
+
         <legend>Panel de Filtrado</legend>
         <SelectFilterYear
           label="Año"
@@ -96,7 +100,11 @@ const FilterPanel = ({ onFilter }) => {
           handleChange={handleChange}
           options={options.developers}
         />
-        <button type="submit" className="filter-panel-button" aria-label="Botón de filtrar">
+        <button
+          type="submit"
+          className="filter-panel-button"
+          aria-label="Botón de filtrar"
+        >
           <Filter width={16} />
           Filtrar
         </button>
