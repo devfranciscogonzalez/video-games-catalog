@@ -20,9 +20,8 @@ export const useFetchGameDetail = (gameId) => {
       console.log(trailersResponse);
       setGameDetail(adaptGameDetails(detailsResponse.data));
       setTrailers(trailersResponse.data.results);
-    } catch (err) {
-      console.error("Error fetching data:", err);
-      setError("Error fetching game data");
+    } catch (error) {
+      setError(error.message || "Ocurrió un error al cargar el juego");
     } finally {
       setLoading(false);
     }

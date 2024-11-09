@@ -6,7 +6,11 @@
   padding: var(--padding-medium);
   text-align: center;
   width: 100%;
-  /* margin: auto; */
+  z-index: 9999;
+}
+
+.error-container.full-screen {
+  height: 100dvh;
 }
 
 .error-icon {

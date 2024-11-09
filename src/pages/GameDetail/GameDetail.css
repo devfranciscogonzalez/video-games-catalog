@@ -171,6 +171,6 @@
     grid-template-columns: 1fr;
   }
   .description {
-    order: 99;
+    order: 9999;
   }
 }

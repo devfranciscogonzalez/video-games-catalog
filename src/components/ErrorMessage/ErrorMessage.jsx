@@ -3,9 +3,10 @@ import "./ErrorMessage.css";
 
 export default function ErrorMessage({
   message = "Ha ocurrido un error inesperado. Por favor, intente de nuevo más tarde.",
+  fullScreen = false,
 }) {
   return (
-    <div className="error-container">
+    <div className={`error-container ${fullScreen ? "full-screen" : ""}`}>
       <div className="error-icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,5 +30,5 @@ export default function ErrorMessage({
 
 ErrorMessage.propTypes = {
   message: PropTypes.string,
-  onRetry: PropTypes.func,
+  fullScreen: PropTypes.bool,
 };

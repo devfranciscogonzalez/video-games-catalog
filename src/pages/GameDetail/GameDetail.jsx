@@ -2,16 +2,17 @@ import { useParams } from "react-router-dom";
 import Back from "../../assets/icons/Back";
 import defaultImage from "../../assets/images/no-image.svg";
 import Footer from "../../components/Footer/Footer";
+import Loader from "../../components/Loader/Loader";
 import { useFetchGameDetail } from "../../hooks/useFetchGameDetail";
 import "./GameDetail.css";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 export default function GameDetail() {
   const { gameId } = useParams();
   const { gameDetail, trailers, loading, error } = useFetchGameDetail(gameId);
 
-  console.log(gameDetail);
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  if (loading) return <Loader fullScreen />;
+  if (error) return <ErrorMessage message={error} fullScreen />;
 
   return (
     <div className="detail-layout">
