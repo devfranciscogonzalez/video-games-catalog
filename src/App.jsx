@@ -1,6 +1,6 @@
 import "./styles/global.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import GameDetail from "./components/GameDetail/GameDetail";
+import GameDetail from "./pages/GameDetail/GameDetail";
 import Home from "./pages/Home/Home";
 
 function App() {

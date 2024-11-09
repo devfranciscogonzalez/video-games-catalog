@@ -1,14 +1,17 @@
 .game-card {
+  display: inline-block;
   position: relative;
   border-radius: var(--border-radius);
   transition: transform 0.3s ease;
   cursor: pointer;
   text-decoration: none;
-  transition: scale var(--transition-duration) var(--transition-timing-function);
+  transition: scale,
+    filter var(--transition-duration) var(--transition-timing-function);
 }
 
 .game-card:hover {
-  scale: 1.01;
+  scale: 1.02;
+  filter: contrast(1.25);
   box-shadow: 0 0 12px 2px #f443366e;
 }
 
@@ -17,6 +20,7 @@
   height: 100%;
   object-fit: cover;
   aspect-ratio: 4/3;
+  border-radius: var(--border-radius);
 }
 
 .game-info {
@@ -24,7 +28,9 @@
   bottom: 0px;
   width: 100%;
   padding: var(--padding-medium);
-  background: linear-gradient(rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.9) 100%);
+  background: linear-gradient(rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 1) 100%);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }
 
 .game-title {

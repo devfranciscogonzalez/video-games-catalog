@@ -19,7 +19,6 @@ export default function adaptGames(gamesData) {
       releaseDate: formattedDate,
       metacritic: game.metacritic,
       backgroundImage: game.background_image,
-      genres: game.genres,
     };
   });
 }
