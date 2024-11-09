@@ -1,40 +1,34 @@
 import { useCallback, useEffect, useState } from "react";
 import adaptGames from "../adapters/adaptGames";
-import { GAMES_LOADING_ERROR_MESSAGE } from "../constants/constants";
 import { fetchGames } from "../services/games";
+import { searchGames } from "../services/searchGames";
 
-export const useFetchGames = (filters, searchText = "", page) => {
+export const useFetchGames = (filters, searchText, currentPage) => {
   const [games, setGames] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [totalPages, setTotalPages] = useState(1);
 
   const getGames = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
-      const { games: gamesData, totalPages } = await fetchGames({
-        ...filters,
-        searchText,
-        page,
-      });
-      setGames(adaptGames(gamesData));
-      setTotalPages(totalPages);
+      const result = searchText
+        ? await searchGames(searchText)
+        : await fetchGames({ ...filters, page: currentPage });
+
+      setGames(adaptGames(result.games));
+      setTotalPages(result.totalPages);
     } catch (error) {
-      setError(error.message || GAMES_LOADING_ERROR_MESSAGE);
+      setError(error.message);
     } finally {
       setLoading(false);
     }
-  }, [filters, searchText, page]);
+  }, [filters, searchText, currentPage]);
 
   useEffect(() => {
     getGames();
   }, [getGames]);
 
-  return {
-    games,
-    totalPages,
-    loading,
-    error,
-  };
+  return { games, totalPages, loading, error };
 };
