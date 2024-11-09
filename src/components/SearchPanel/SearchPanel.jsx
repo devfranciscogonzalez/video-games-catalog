@@ -24,7 +24,11 @@ const SearchPanel = ({ onSearch }) => {
         onChange={handleInputChange}
         className="search-input"
       />
-      <button type="submit" className="search-button">
+      <button
+        type="submit"
+        className="search-button"
+        aria-label="Botón de buscar video juegos"
+      >
         <Search width={14} height={14} />
       </button>
     </form>

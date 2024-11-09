@@ -96,7 +96,7 @@ const FilterPanel = ({ onFilter }) => {
           handleChange={handleChange}
           options={options.developers}
         />
-        <button type="submit" className="filter-panel-button">
+        <button type="submit" className="filter-panel-button" aria-label="Botón de filtrar">
           <Filter width={16} />
           Filtrar
         </button>
