@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import Back from "../../assets/icons/Back";
+import defaultImage from "../../assets/images/no-image.svg";
 import Footer from "../../components/Footer/Footer";
 import { useFetchGameDetail } from "../../hooks/useFetchGameDetail";
 import "./GameDetail.css";
@@ -25,9 +26,9 @@ export default function GameDetail() {
       <main className="detail-container">
         <div className="detail-image-layout">
           <img
-            src={gameDetail.backgroundImage}
-            alt={gameDetail.name}
-            className="detail-image"
+            src={gameDetail.backgroundImage || defaultImage}
+            alt={gameDetail.name || "Imagen no disponible"}
+            className="game-image"
           />
         </div>
         <div className="detail-info">
@@ -54,9 +55,9 @@ export default function GameDetail() {
         </div>
         <div className="detail-image-layout ">
           <img
-            src={gameDetail.backgroundImageAdditional}
-            alt={gameDetail.name}
-            className="detail-image"
+            src={gameDetail.backgroundImageAdditional || defaultImage}
+            alt={gameDetail.name || "Imagen no disponible"}
+            className="game-image"
           />
         </div>
       </main>
