@@ -1,6 +1,4 @@
 export default function adaptGameDetails(gameDetailData) {
-  console.log(gameDetailData);
-  
   if (!gameDetailData) {
     console.error(
       "Los datos de detalles de juegos no están disponibles:",

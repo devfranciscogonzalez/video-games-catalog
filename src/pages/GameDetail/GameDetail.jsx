@@ -1,42 +1,16 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import adaptGameDetails from "../../adapters/adaptGameDetails";
 import Back from "../../assets/icons/Back";
-import { httpClient } from "../../services/httpClient";
-import "./GameDetail.css";
 import Footer from "../../components/Footer/Footer";
+import { useFetchGameDetail } from "../../hooks/useFetchGameDetail";
+import "./GameDetail.css";
 
 export default function GameDetail() {
   const { gameId } = useParams();
-  const [gameDetail, setGameDetail] = useState(null);
-  const [trailers, setTrailers] = useState([]);
+  const { gameDetail, trailers, loading, error } = useFetchGameDetail(gameId);
 
-  useEffect(() => {
-    async function fetchGameDetails() {
-      try {
-        const response = await httpClient.get(`/games/${gameId}`);
-        setGameDetail(adaptGameDetails(response.data));
-      } catch (error) {
-        console.error("Error fetching game details:", error);
-      }
-    }
-
-    async function fetchTrailers() {
-      try {
-        const trailerResponse = await httpClient.get(`/games/${gameId}/movies`);
-        setTrailers(trailerResponse.data.results);
-      } catch (error) {
-        console.error("Error fetching trailers:", error);
-      }
-    }
-
-    fetchGameDetails();
-    fetchTrailers();
-  }, [gameId]);
-
-  if (!gameDetail) {
-    return <p>Loading...</p>;
-  }
+  console.log(gameDetail);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div className="detail-layout">
@@ -78,7 +52,7 @@ export default function GameDetail() {
             <p>{gameDetail.description}</p>
           </div>
         </div>
-        <div className="detail-image-layout">
+        <div className="detail-image-layout ">
           <img
             src={gameDetail.backgroundImageAdditional}
             alt={gameDetail.name}

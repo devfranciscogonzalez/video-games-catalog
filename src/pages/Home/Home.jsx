@@ -45,8 +45,6 @@ export default function Home() {
     setCurrentPage(newPage);
   };
 
-
-  
   return (
     <div className="home-layout">
       <NavBar handleSearch={handleSearch} />
