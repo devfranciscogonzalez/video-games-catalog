@@ -56,6 +56,6 @@ export default function ErrorMessage({
 }
 
 ErrorMessage.propTypes = {
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string,
   onRetry: PropTypes.func,
 };
