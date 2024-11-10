@@ -8,8 +8,8 @@
 
   --color-background: hsl(0, 0%, 0%);
 
-  --color-background-secondary: hsl(0, 100%, 50%);
-  --color-background-secondary-hover: hsla(0, 100%, 50%, 0.7);
+  --color-background-secondary: hsl(0, 100%, 50%, 0.6);
+  --color-background-secondary-hover: hsla(0, 100%, 50%, 0.5);
 
   --color-bacground-tertiary: hsla(0, 96%, 48%, 0.1);
 
