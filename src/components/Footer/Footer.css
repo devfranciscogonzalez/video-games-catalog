@@ -32,4 +32,9 @@
 }
 
 @media (width <= 768px) {
+  .footer-layout {
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-small);
+  }
 }

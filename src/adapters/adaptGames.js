@@ -1,6 +1,5 @@
 export function adaptGames(gamesData) {
   if (!Array.isArray(gamesData)) {
-    console.error("Los datos de juegos no son un array:", gamesData);
     return [];
   }
 
