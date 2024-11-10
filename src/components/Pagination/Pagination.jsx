@@ -25,6 +25,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         onClick={() => handlePageClick(currentPage - 1)}
         disabled={currentPage === 1}
         className="pagination-motion"
+        aria-label="Pagina anterior"
       >
         <Previous width={14} height={14} />
       </button>
@@ -41,6 +42,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
         onClick={() => handlePageClick(currentPage + 1)}
         disabled={currentPage === totalPages}
         className="pagination-motion"
+        aria-label="Pagina siguiente"
       >
         <Next width={14} height={14} />
       </button>

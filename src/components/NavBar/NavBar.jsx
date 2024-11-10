@@ -7,7 +7,7 @@ const NavBar = ({ handleSearch }) => {
   return (
     <header className="navbar-header">
       <nav className="navbar-layout">
-        <a href="/" className="navbar-logo">
+        <a href="/" className="navbar-logo" aria-label="Logo de la pagina web">
           <Joystick width={42} height={42} />
         </a>
         <SearchPanel onSearch={handleSearch} />
