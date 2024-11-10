@@ -12,7 +12,6 @@ const SearchPanel = ({ onSearch }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
     onSearch(formData);
   };
 

@@ -41,11 +41,19 @@ export default function Home() {
   }, [filters]);
 
   const handleFilter = (newFilters) => {
+    setSearchText("");
     setFilters(newFilters);
   };
 
   const handleSearch = (newSearchText) => {
     setSearchText(newSearchText);
+    setFilters({
+      year: INITIAL_YEAR,
+      genre: INITIAL_GENRE,
+      platform: INITIAL_PLATFORM,
+      tag: INITIAL_TAG,
+      developer: INITIAL_DEVELOPER,
+    });
   };
 
   const handlePageChange = (newPage) => {
@@ -60,10 +68,7 @@ export default function Home() {
         {error && <ErrorMessage message={error} />}
         {!loading && !error && (
           <>
-            <FilterPanel
-              onFilter={handleFilter}
-              filters={filters}
-            />
+            <FilterPanel onFilter={handleFilter} filters={filters} />
             <GameList games={games} />
             <Pagination
               currentPage={currentPage}

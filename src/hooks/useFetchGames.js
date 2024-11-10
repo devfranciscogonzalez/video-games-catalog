@@ -25,7 +25,7 @@ export const useFetchGames = (filters, searchText, currentPage) => {
       setLoading(false);
     }
   }, [filters, searchText, currentPage]);
-
+  
   useEffect(() => {
     getGames();
   }, [getGames]);
