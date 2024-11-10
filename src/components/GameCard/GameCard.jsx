@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import defaultImage from "../../assets/images/no-image.svg";
 import Score from "../Score/Score";
 import "./GameCard.css";
+import { Link } from "react-router-dom";
 
 export default function GameCard({ game }) {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function GameCard({ game }) {
   };
 
   return (
-    <a className="game-card" onClick={handleCardClick}>
+    <Link className="game-card" onClick={handleCardClick}>
       <img
         src={backgroundImage || defaultImage}
         alt={name || "Imagen no disponible"}
@@ -26,7 +27,7 @@ export default function GameCard({ game }) {
         </div>
         <span className="game-date">{releaseDate}</span>
       </footer>
-    </a>
+    </Link>
   );
 }
 

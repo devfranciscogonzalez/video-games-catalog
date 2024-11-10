@@ -5,6 +5,7 @@
   transition: transform 0.3s ease;
   cursor: pointer;
   text-decoration: none;
+  color: var(--color-text);
   transition: scale,
     filter var(--transition-duration) var(--transition-timing-function);
 }
