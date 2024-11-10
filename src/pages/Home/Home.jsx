@@ -61,9 +61,21 @@ export default function Home() {
     setCurrentPage(newPage);
   };
 
+  const handleLogoClick = () => {
+    setSearchText("");
+    setFilters({
+      year: INITIAL_YEAR,
+      genre: INITIAL_GENRE,
+      platform: INITIAL_PLATFORM,
+      tag: INITIAL_TAG,
+      developer: INITIAL_DEVELOPER,
+    });
+    setCurrentPage(1);
+  };
+
   return (
     <div className="home-layout">
-      <NavBar>
+      <NavBar onLogoClick={handleLogoClick}>
         <SearchPanel onSearch={handleSearch} searchText={searchText} />
       </NavBar>
       <main className="home-container">
@@ -72,12 +84,18 @@ export default function Home() {
         {!loading && !error && (
           <>
             <FilterPanel onFilter={handleFilter} filters={filters} />
-            <GameList games={games} />
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
+            {games.length > 0 ? (
+              <GameList games={games} />
+            ) : (
+              <p className="no-games-message">No se encontraron juegos.</p>
+            )}
+            {games.length > 0 && (
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+              />
+            )}
           </>
         )}
       </main>

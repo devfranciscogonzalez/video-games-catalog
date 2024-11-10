@@ -13,3 +13,10 @@
   margin: var(--margin-large) auto;
   padding: 0 var(--padding-medium);
 }
+
+.no-games-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
