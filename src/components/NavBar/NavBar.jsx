@@ -1,23 +1,22 @@
 import PropTypes from "prop-types";
 import Joystick from "../../assets/icons/Joystick";
-import SearchPanel from "../SearchPanel/SearchPanel";
 import "./NavBar.css";
 
-const NavBar = ({ handleSearch }) => {
+const NavBar = ({ children }) => {
   return (
     <header className="navbar-header">
       <nav className="navbar-layout">
         <a href="/" className="navbar-logo" aria-label="Logo de la pagina web">
           <Joystick width={42} height={42} />
         </a>
-        <SearchPanel onSearch={handleSearch} />
+        {children}
       </nav>
     </header>
   );
 };
 
 NavBar.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
+  children: PropTypes.node,
 };
 
 export default NavBar;

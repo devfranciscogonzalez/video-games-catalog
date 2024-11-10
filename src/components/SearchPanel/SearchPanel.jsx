@@ -1,17 +1,21 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Search from "../../assets/icons/Search";
 import "./SearchPanel.css";
 
-const SearchPanel = ({ onSearch }) => {
+const SearchPanel = ({ onSearch, searchText }) => {
   const [formData, setFormData] = useState("");
 
-  const handleInputChange = (event) => {
-    setFormData(event.target.value);
+  useEffect(() => {
+    setFormData(searchText);
+  }, [searchText]);
+
+  const handleInputChange = (e) => {
+    setFormData(e.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
     onSearch(formData);
   };
 
@@ -19,6 +23,7 @@ const SearchPanel = ({ onSearch }) => {
     <form onSubmit={handleSubmit} className="search-form">
       <input
         type="text"
+        value={formData}
         placeholder="Buscar juegos..."
         onChange={handleInputChange}
         className="search-input"
@@ -36,6 +41,7 @@ const SearchPanel = ({ onSearch }) => {
 
 SearchPanel.propTypes = {
   onSearch: PropTypes.func.isRequired,
+  searchText: PropTypes.string.isRequired,
 };
 
 export default SearchPanel;

@@ -25,8 +25,6 @@ const FilterPanel = ({ onFilter, filters }) => {
     developer: INITIAL_DEVELOPER || filters.developer,
   });
 
-  console.log(filters);
-  console.log({ form: formData });
   const handleSubmit = (e) => {
     e.preventDefault();
     onFilter(formData);

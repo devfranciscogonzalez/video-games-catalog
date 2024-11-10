@@ -9,7 +9,6 @@ const SelectFilter = ({
   options,
   placeholder = "Todos",
 }) => {
-  console.log(value);
   return (
     <select
       name={name}
