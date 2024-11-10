@@ -7,7 +7,7 @@ import {
   NavBar,
   Pagination,
   SearchPanel,
-  Layout
+  Layout,
 } from "../../components";
 import {
   INITIAL_DEVELOPER,
@@ -83,27 +83,25 @@ export default function Home() {
 
   return (
     <Layout header={homeHeader}>
-      <main className="home-container">
-        {loading && <Loader />}
-        {error && <ErrorMessage message={error} />}
-        {!loading && !error && (
-          <>
-            <FilterPanel onFilter={handleFilter} filters={filters} />
-            {games.length > 0 ? (
-              <GameList games={games} />
-            ) : (
-              <p className="no-games-message">No se encontraron juegos.</p>
-            )}
-            {games.length > 0 && (
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                onPageChange={handlePageChange}
-              />
-            )}
-          </>
-        )}
-      </main>
+      {loading && <Loader />}
+      {error && <ErrorMessage message={error} />}
+      {!loading && !error && (
+        <>
+          <FilterPanel onFilter={handleFilter} filters={filters} />
+          {games.length > 0 ? (
+            <GameList games={games} />
+          ) : (
+            <p className="no-games-message">No se encontraron juegos.</p>
+          )}
+          {games.length > 0 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          )}
+        </>
+      )}
     </Layout>
   );
 }

@@ -2,8 +2,8 @@
   display: grid;
   min-height: 100dvh;
   grid-template-rows: auto 1fr auto;
-  background-color: var(--color-background);
 }
+
 
 .detail-header {
   display: flex;
@@ -44,27 +44,7 @@
   scale: 1.1;
 }
 
-.detail-container {
-  display: grid;
-  align-items: flex-start;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-large);
-  width: 100%;
-  max-width: var(--max-width-container);
-  margin: var(--margin-large) auto;
-  padding: 0 var(--padding-medium);
-  font-size: var(--font-size-small);
-}
 
-.detail-container > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.detail-trailer {
-  grid-column: span 2;
-}
 
 /* .detail-image-layout {
   width: 50%;

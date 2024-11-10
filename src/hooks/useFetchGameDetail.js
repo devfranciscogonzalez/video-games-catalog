@@ -16,8 +16,6 @@ export const useFetchGameDetail = (gameId) => {
         httpClient.get(`/games/${gameId}`),
         httpClient.get(`/games/${gameId}/movies`),
       ]);
-      console.log(detailsResponse);
-      console.log(trailersResponse);
       setGameDetail(adaptGameDetails(detailsResponse.data));
       setTrailers(trailersResponse.data.results);
     } catch (error) {
