@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
 import Back from "../../assets/icons/Back";
-import defaultImage from "../../assets/images/no-image.svg";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Footer from "../../components/Footer/Footer";
+import Image from "../../components/Image/Image";
 import Loader from "../../components/Loader/Loader";
+import Trailer from "../../components/Trailer/Trailer";
 import { useFetchGameDetail } from "../../hooks/useFetchGameDetail";
 import "./GameDetail.css";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 export default function GameDetail() {
   const { gameId } = useParams();
@@ -26,9 +27,9 @@ export default function GameDetail() {
       </header>
       <main className="detail-container">
         <div className="detail-image-layout">
-          <img
-            src={gameDetail.backgroundImage || defaultImage}
-            alt={gameDetail.name || "Imagen no disponible"}
+          <Image
+            src={gameDetail.backgroundImage}
+            alt={gameDetail.name}
             className="game-image"
           />
         </div>
@@ -54,30 +55,17 @@ export default function GameDetail() {
             <p>{gameDetail.description}</p>
           </div>
         </div>
-        <div className="detail-image-layout ">
-          <img
-            src={gameDetail.backgroundImageAdditional || defaultImage}
-            alt={gameDetail.name || "Imagen no disponible"}
+        <div className="detail-image-layout">
+          <Image
+            src={gameDetail.backgroundImageAdditional}
+            alt={gameDetail.name}
             className="game-image"
           />
         </div>
-      </main>
-      {trailers.count > 0 && (
-        <div className="trailers-section">
-          <h3>Trailers</h3>
-          <div className="trailers-container">
-            {trailers.results.map((trailer, index) => (
-              <div key={index} className="trailer-item">
-                <video controls className="trailer-video">
-                  <source src={trailer.data.max} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <p className="trailer-name">{trailer.name}</p>
-              </div>
-            ))}
-          </div>
+        <div className="detail-trailer">
+          <Trailer trailers={trailers} />
         </div>
-      )}
+      </main>
       <Footer />
     </div>
   );

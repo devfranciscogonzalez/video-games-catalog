@@ -1,0 +1,45 @@
+.trailers-section {
+  margin-top: 40px;
+  font-size: var(--font-size-small);
+}
+
+.trailers-section-title {
+  font-size: var(--font-size-medium);
+  color: var(--color-primary);
+  margin: var(--margin-small) 0;
+}
+
+.trailers-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.trailer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.trailer-video {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.trailer-name {
+  font-size: 1rem;
+  color: #34495e;
+  text-align: center;
+}
+
+.no-trailers-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
