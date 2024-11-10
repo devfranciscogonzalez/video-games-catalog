@@ -3,6 +3,7 @@ import "./SelectFilter.css";
 
 const SelectFilterYear = ({
   label,
+  value,
   name,
   startYear = 2000,
   endYear = new Date().getFullYear(),
@@ -21,6 +22,7 @@ const SelectFilterYear = ({
       name={name}
       onChange={handleChange}
       className="select-filter"
+      value={value}
       defaultValue=""
       aria-label={`Filtrar por ${label}`}
     >
@@ -39,6 +41,7 @@ const SelectFilterYear = ({
 
 SelectFilterYear.propTypes = {
   label: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string.isRequired,
   startYear: PropTypes.number.isRequired,
   endYear: PropTypes.number.isRequired,

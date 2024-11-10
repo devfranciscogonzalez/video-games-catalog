@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import FilterPanel from "../../components/FilterPanel/FilterPanel";
 import GameList from "../../components/GameList/GameList";
@@ -15,15 +15,18 @@ import {
 import { useFetchGames } from "../../hooks/useFetchGames";
 import "./Home.css";
 import Footer from "../../components/Footer/Footer";
+import { getFromLocalStorage, setToLocalStorage } from "../../utils/storage";
 
 export default function Home() {
-  const [filters, setFilters] = useState({
-    year: INITIAL_YEAR,
-    genre: INITIAL_GENRE,
-    platform: INITIAL_PLATFORM,
-    tag: INITIAL_TAG,
-    developer: INITIAL_DEVELOPER,
-  });
+  const [filters, setFilters] = useState(() =>
+    getFromLocalStorage("filters", {
+      year: INITIAL_YEAR,
+      genre: INITIAL_GENRE,
+      platform: INITIAL_PLATFORM,
+      tag: INITIAL_TAG,
+      developer: INITIAL_DEVELOPER,
+    })
+  );
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -32,6 +35,10 @@ export default function Home() {
     searchText,
     currentPage
   );
+
+  useEffect(() => {
+    setToLocalStorage("filters", filters);
+  }, [filters]);
 
   const handleFilter = (newFilters) => {
     setFilters(newFilters);
@@ -53,7 +60,10 @@ export default function Home() {
         {error && <ErrorMessage message={error} />}
         {!loading && !error && (
           <>
-            <FilterPanel onFilter={handleFilter} />
+            <FilterPanel
+              onFilter={handleFilter}
+              filters={filters}
+            />
             <GameList games={games} />
             <Pagination
               currentPage={currentPage}

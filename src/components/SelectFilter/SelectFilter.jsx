@@ -3,17 +3,19 @@ import "./SelectFilter.css";
 
 const SelectFilter = ({
   label,
+  value,
   name,
   handleChange,
   options,
   placeholder = "Todos",
 }) => {
+  console.log(value);
   return (
     <select
       name={name}
+      value={value}
       onChange={handleChange}
       className="select-filter"
-      defaultValue=""
       aria-label={`Filtrar por ${label}`}
     >
       <option value="" disabled>
@@ -31,6 +33,7 @@ const SelectFilter = ({
 
 SelectFilter.propTypes = {
   label: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(

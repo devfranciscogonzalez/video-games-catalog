@@ -38,6 +38,7 @@ body {
       var(--color-accent-rgba),
       transparent 30%
     );
+  background-repeat: no-repeat;
 }
 
 input,
