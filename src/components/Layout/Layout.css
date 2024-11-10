@@ -30,12 +30,6 @@
   font-size: var(--font-size-small);
 }
 
-.layout-grid > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .detail-trailer {
   grid-column: span 2;
 }

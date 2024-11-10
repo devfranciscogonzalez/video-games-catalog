@@ -3,7 +3,7 @@ import "./Trailer.css";
 
 export default function Trailer({ trailers }) {
   return (
-    <div className="trailers-section">
+    <>
       <h2 className="trailers-section-title">Trailers</h2>
       {trailers.length > 0 ? (
         <div className="trailers-container">
@@ -20,7 +20,7 @@ export default function Trailer({ trailers }) {
       ) : (
         <p className="no-trailers-message">No hay trailers disponibles.</p>
       )}
-    </div>
+    </>
   );
 }
 

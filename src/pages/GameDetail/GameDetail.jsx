@@ -29,12 +29,9 @@ export default function GameDetail() {
       border={true}
     >
       <div className="detail-image-layout">
-        <Image
-          src={gameDetail.backgroundImage}
-          alt={gameDetail.name}
-        />
+        <Image src={gameDetail.backgroundImage} alt={gameDetail.name} />
       </div>
-      <div className="detail-info">
+      <article className="detail-info">
         <h2>Genero</h2>
         <p>{gameDetail.genres.map((genre) => genre.name).join(", ")}</p>
         <h2>Fecha de Lanzamiento</h2>
@@ -47,22 +44,22 @@ export default function GameDetail() {
         </p>
         <h2>Metacritic Score</h2>
         <p> {gameDetail.metacritic}</p>
-      </div>
-      <div className="detail-info description">
+      </article>
+      <article className="detail-info description-scroll">
         <div className="detail-description-layout">
           <h2>Descripción</h2>
           <p>{gameDetail.description}</p>
         </div>
-      </div>
+      </article>
       <div className="detail-image-layout">
         <Image
           src={gameDetail.backgroundImageAdditional}
           alt={gameDetail.name}
         />
       </div>
-      <div className="detail-trailer">
+      <section className="detail-trailer">
         <Trailer trailers={trailers} />
-      </div>
+      </section>
     </Layout>
   );
 }

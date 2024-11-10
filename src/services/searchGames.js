@@ -5,7 +5,6 @@ export const searchGames = async (searchText) => {
   const baseParams = {
     ordering: "-metacritic",
     search_precise: true,
-    search_exact: true,
     page_size: 20,
     search: searchText,
   };
