@@ -1,6 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
-import { httpClient } from "../services/httpClient";
-import adaptGameDetails from "../adapters/adaptGameDetails";
+import { httpClient } from "../services/api/httpClient";
+import {
+  adaptGameDetailTrailers,
+  adaptGameDetails,
+} from "../adapters/adaptGameDetails";
 
 export function useFetchGameDetail(gameId) {
   const [gameDetail, setGameDetail] = useState(null);
@@ -17,7 +20,7 @@ export function useFetchGameDetail(gameId) {
         httpClient.get(`/games/${gameId}/movies`),
       ]);
       setGameDetail(adaptGameDetails(detailsResponse.data));
-      setTrailers(trailersResponse.data.results);
+      setTrailers(adaptGameDetailTrailers(trailersResponse.data.results));
     } catch (error) {
       setError(error.message || "Ocurrió un error al cargar el juego");
     } finally {

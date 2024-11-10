@@ -7,13 +7,13 @@ export default function Trailer({ trailers }) {
       <h2 className="trailers-section-title">Trailers</h2>
       {trailers.length > 0 ? (
         <div className="trailers-container">
-          {trailers.results.map((trailer, index) => (
-            <div key={index} className="trailer-item">
+          {trailers.map(({ id, name, trailerVideoUrl }) => (
+            <div key={id} className="trailer-item">
               <video controls className="trailer-video">
-                <source src={trailer.data.max} type="video/mp4" />
+                <source src={trailerVideoUrl} type="video/mp4" />
                 Tu navegador no soporta la etiqueta de video.
               </video>
-              <p className="trailer-name">{trailer.name}</p>
+              <p className="trailer-name">{name}</p>
             </div>
           ))}
         </div>

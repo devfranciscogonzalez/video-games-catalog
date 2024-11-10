@@ -7,7 +7,7 @@ import "./GameDetail.css";
 export default function GameDetail() {
   const { gameId } = useParams();
   const { gameDetail, trailers, loading, error } = useFetchGameDetail(gameId);
-
+  console.log({ trailers: trailers });
   if (loading) return <Loader fullScreen />;
   if (error) return <ErrorMessage message={error} fullScreen />;
 

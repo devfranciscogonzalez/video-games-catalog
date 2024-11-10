@@ -3,6 +3,3 @@ export const ERROR_PAGE_MESSAGE =
 
 export const FETCH_GAMES_ERROR_MESSAGE =
   "Ocurrió un error al obtener los datos de los juegos";
-
-export const API_KEY = import.meta.env.VITE_API_KEY;
-export const BASE_URL = import.meta.env.VITE_API_BASE_URL;

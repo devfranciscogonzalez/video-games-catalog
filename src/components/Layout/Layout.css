@@ -39,3 +39,9 @@
 .detail-trailer {
   grid-column: span 2;
 }
+
+@media (width <= 768px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+}

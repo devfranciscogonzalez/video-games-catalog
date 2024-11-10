@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import adaptGames from "../adapters/adaptGames";
+import { adaptGames } from "../adapters/adaptGames";
 import { fetchGames } from "../services/games";
 import { searchGames } from "../services/searchGames";
 
@@ -16,7 +16,6 @@ export function useFetchGames(filters, searchText, currentPage) {
       const result = searchText
         ? await searchGames(searchText)
         : await fetchGames({ ...filters, page: currentPage });
-
       setGames(adaptGames(result.games));
       setTotalPages(result.totalPages);
     } catch (error) {

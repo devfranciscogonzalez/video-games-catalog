@@ -1,9 +1,5 @@
-export default function adaptGameDetails(gameDetailData) {
+export function adaptGameDetails(gameDetailData) {
   if (!gameDetailData) {
-    console.error(
-      "Los datos de detalles de juegos no están disponibles:",
-      gameDetailData
-    );
     return null;
   }
 
@@ -29,4 +25,18 @@ export default function adaptGameDetails(gameDetailData) {
     platforms: gameDetailData.platforms,
     description: gameDetailData.description_raw,
   };
+}
+
+export function adaptGameDetailTrailers(trailersData) {
+  if (!trailersData) {
+    return [];
+  }
+
+  return trailersData.map((trailer) => {
+    return {
+      id: trailer.id,
+      name: trailer.name,
+      trailerVideoUrl: trailer.data.max,
+    };
+  });
 }

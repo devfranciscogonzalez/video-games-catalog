@@ -1,5 +1,5 @@
 import { FETCH_GAMES_ERROR_MESSAGE } from "../constants/constants";
-import { httpClient } from "./httpClient";
+import { httpClient } from "./api/httpClient";
 
 export async function fetchGames({
   year,
