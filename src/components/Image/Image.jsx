@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import defaultImage from "../../assets/images/no-image.svg";
 import "./Image.css";
 
-export default function Image({ src, alt, className }) {
+export default function Image({ src, alt }) {
   return (
     <img
       src={src || defaultImage}
       alt={alt || "Imagen no disponible"}
-      className={className}
+      className="game-image"
     />
   );
 }

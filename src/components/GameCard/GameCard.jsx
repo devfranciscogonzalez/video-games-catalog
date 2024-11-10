@@ -14,13 +14,11 @@ export default function GameCard({ game }) {
 
   return (
     <Link className="game-card" onClick={handleCardClick}>
-      <Image src={backgroundImage} alt={name} className="game-image" />
+      <Image src={backgroundImage} alt={name} />
       {metacritic && <Score score={metacritic} />}
-      <footer className="game-info">
-        <div>
-          <h2 className="game-title">{name}</h2>
-        </div>
-        <span className="game-date">{releaseDate}</span>
+      <footer className="game-card-info">
+        <h2 className="game-card-title">{name}</h2>
+        <span className="game-card-date">{releaseDate}</span>
       </footer>
     </Link>
   );

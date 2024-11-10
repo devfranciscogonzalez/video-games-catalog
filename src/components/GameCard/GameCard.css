@@ -16,7 +16,7 @@
   box-shadow: 0 0 12px 2px #f443366e;
 }
 
-.game-info {
+.game-card-info {
   position: absolute;
   bottom: 0px;
   width: 100%;
@@ -26,27 +26,13 @@
   border-bottom-right-radius: var(--border-radius);
 }
 
-.game-title {
+.game-card-title {
   font-size: var(--font-size-medium);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.game-date {
+.game-card-date {
   opacity: 0.7;
-}
-
-.genre-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.genre-tag {
-  background-color: #f0f0f0;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  color: #666;
 }
