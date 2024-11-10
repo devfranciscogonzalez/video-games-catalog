@@ -8,7 +8,7 @@
 
 .pagination button {
   height: 100%;
-  padding: var(--padding-small);
+  padding: 0px 10px;
   border: none;
   background-color: var(--color-text);
   cursor: pointer;

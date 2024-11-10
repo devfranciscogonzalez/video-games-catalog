@@ -22,6 +22,7 @@ const SelectFilterYear = ({
       onChange={handleChange}
       className="select-filter"
       defaultValue=""
+      aria-label={`Filtrar por ${label}`}
     >
       <option value="" disabled>
         {label}
