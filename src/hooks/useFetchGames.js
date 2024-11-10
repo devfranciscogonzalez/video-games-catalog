@@ -18,8 +18,8 @@ export function useFetchGames(filters, searchText, currentPage) {
         : await fetchGames({ ...filters, page: currentPage });
       setGames(adaptGames(result.games));
       setTotalPages(result.totalPages);
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err.message || "Error al cargar juegos");
     } finally {
       setLoading(false);
     }

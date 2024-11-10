@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { fetchFilterOptions } from "../services/filter";
 
 export function useFetchFilterOption() {
@@ -11,23 +11,22 @@ export function useFetchFilterOption() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const loadFilterOptions = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const data = await fetchFilterOptions();
-        setOptions(data);
-      } catch (err) {
-        setError("Error al cargar opciones de filtros");
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadFilterOptions();
+  const getFilterOptions = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await fetchFilterOptions();
+      setOptions(data);
+    } catch (err) {
+      setError(err.message || "Error al cargar opciones de filtros");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    getFilterOptions();
+  }, [getFilterOptions]);
 
   return { options, loading, error };
 }

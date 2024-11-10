@@ -1,4 +1,4 @@
-import { FETCH_GAMES_ERROR_MESSAGE } from "../constants/constants";
+import { ERRORS } from "../constants/errorMessages";
 import { httpClient } from "./api/httpClient";
 
 export const searchGames = async (searchText) => {
@@ -15,7 +15,7 @@ export const searchGames = async (searchText) => {
       games: data.results,
       totalPages: Math.ceil(data.count / baseParams.page_size),
     };
-  } catch (error) {
-    throw new Error(FETCH_GAMES_ERROR_MESSAGE || error.message);
+  } catch (err) {
+    throw new Error(ERRORS.SEARCH_GAMES || err.message);
   }
 };

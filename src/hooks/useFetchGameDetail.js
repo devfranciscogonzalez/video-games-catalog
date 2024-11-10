@@ -1,9 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { httpClient } from "../services/api/httpClient";
-import {
-  adaptGameDetailTrailers,
-  adaptGameDetails,
-} from "../adapters/adaptGameDetails";
+import { fetchGameDetail } from "../services/gamesDetails";
 
 export function useFetchGameDetail(gameId) {
   const [gameDetail, setGameDetail] = useState(null);
@@ -11,28 +7,23 @@ export function useFetchGameDetail(gameId) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchGameData = useCallback(async () => {
+  const getGameDetail = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
-      const [detailsResponse, trailersResponse] = await Promise.all([
-        httpClient.get(`/games/${gameId}`),
-        httpClient.get(`/games/${gameId}/movies`),
-      ]);
-      setGameDetail(adaptGameDetails(detailsResponse.data));
-      setTrailers(adaptGameDetailTrailers(trailersResponse.data.results));
-    } catch (error) {
-      setError(error.message || "Ocurrió un error al cargar el juego");
+      const { gameDetail, trailers } = await fetchGameDetail(gameId);
+      setGameDetail(gameDetail);
+      setTrailers(trailers);
+    } catch (err) {
+      setError(err.message || "Error al cargar detalles del juego");
     } finally {
       setLoading(false);
     }
   }, [gameId]);
 
   useEffect(() => {
-    if (gameId) {
-      fetchGameData();
-    }
-  }, [fetchGameData, gameId]);
+    getGameDetail();
+  }, [getGameDetail]);
 
   return { gameDetail, trailers, loading, error };
 }

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import Back from "../../assets/icons/Back";
 import { ErrorMessage } from "../../components";
-import { ERROR_PAGE_MESSAGE } from "../../constants/constants";
+import { ERRORS } from "../../constants/errorMessages";
 import "./ErrorPage.css";
 
 export default function ErrorPage() {
@@ -14,7 +14,7 @@ export default function ErrorPage() {
 
   return (
     <div className="error-page-container">
-      <ErrorMessage message={ERROR_PAGE_MESSAGE} />
+      <ErrorMessage message={ERRORS.PAGE_NOT_FOUND} />
       <button
         className="error-page-button"
         onClick={handleGoBack}
