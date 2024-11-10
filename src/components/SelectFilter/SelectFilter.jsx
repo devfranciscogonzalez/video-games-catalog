@@ -1,14 +1,14 @@
 import PropTypes from "prop-types";
 import "./SelectFilter.css";
 
-const SelectFilter = ({
+export default function SelectFilter({
   label,
   value,
   name,
   handleChange,
   options,
   placeholder = "Todos",
-}) => {
+}) {
   return (
     <select
       name={name}
@@ -28,7 +28,7 @@ const SelectFilter = ({
       ))}
     </select>
   );
-};
+}
 
 SelectFilter.propTypes = {
   label: PropTypes.string.isRequired,
@@ -43,5 +43,3 @@ SelectFilter.propTypes = {
   ).isRequired,
   placeholder: PropTypes.string,
 };
-
-export default SelectFilter;

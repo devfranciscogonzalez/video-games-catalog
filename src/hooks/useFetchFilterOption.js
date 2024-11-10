@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchFilterOptions } from "../services/filter";
 
-export const useFetchFilterOption = () => {
+export function useFetchFilterOption() {
   const [options, setOptions] = useState({
     genres: [],
     platforms: [],
@@ -30,4 +30,4 @@ export const useFetchFilterOption = () => {
   }, []);
 
   return { options, loading, error };
-};
+}

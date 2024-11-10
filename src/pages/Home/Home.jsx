@@ -3,11 +3,11 @@ import {
   ErrorMessage,
   FilterPanel,
   GameList,
+  Layout,
   Loader,
   NavBar,
   Pagination,
   SearchPanel,
-  Layout,
 } from "../../components";
 import {
   INITIAL_DEVELOPER,
@@ -44,8 +44,8 @@ export default function Home() {
   }, [filters]);
 
   const handleFilter = (newFilters) => {
-    setSearchText("");
     setFilters(newFilters);
+    setSearchText("");
   };
 
   const handleSearch = (newSearchText) => {
@@ -63,7 +63,7 @@ export default function Home() {
     setCurrentPage(newPage);
   };
 
-  const handleLogoClick = () => {
+  const handleResetClick = () => {
     setSearchText("");
     setFilters({
       year: INITIAL_YEAR,
@@ -76,7 +76,7 @@ export default function Home() {
   };
 
   const homeHeader = (
-    <NavBar onLogoClick={handleLogoClick}>
+    <NavBar onResetClick={handleResetClick}>
       <SearchPanel onSearch={handleSearch} searchText={searchText} />
     </NavBar>
   );

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./SelectFilter.css";
 
-const SelectFilterYear = ({
+export default function SelectFilterYear({
   label,
   value,
   name,
@@ -9,7 +9,7 @@ const SelectFilterYear = ({
   endYear = new Date().getFullYear(),
   handleChange,
   placeholder = "Todos",
-}) => {
+}) {
   const generateYearOptions = () => {
     const years = [];
     for (let year = endYear; year >= startYear; year--) {
@@ -36,7 +36,7 @@ const SelectFilterYear = ({
       ))}
     </select>
   );
-};
+}
 
 SelectFilterYear.propTypes = {
   label: PropTypes.string.isRequired,
@@ -47,5 +47,3 @@ SelectFilterYear.propTypes = {
   handleChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
 };
-
-export default SelectFilterYear;

@@ -1,22 +1,19 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import Filter from "../../assets/icons/Filter";
+import { ErrorMessage, SelectFilter, SelectFilterYear } from "../../components";
 import {
-  INITIAL_YEAR,
   INITIAL_DEVELOPER,
   INITIAL_GENRE,
   INITIAL_PLATFORM,
   INITIAL_TAG,
+  INITIAL_YEAR,
 } from "../../constants/filterDefaults";
-import SelectFilter from "../SelectFilter/SelectFilter";
-import SelectFilterYear from "../SelectFilter/SelectFilterYear";
-import "./FilterPanel.css";
-import Filter from "../../assets/icons/Filter";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { useFetchFilterOption } from "../../hooks/useFetchFilterOption";
+import "./FilterPanel.css";
 
-const FilterPanel = ({ onFilter, filters }) => {
+export default function FilterPanel({ onFilter, filters }) {
   const { options, loading, error } = useFetchFilterOption();
-
   const [formData, setFormData] = useState({
     year: INITIAL_YEAR || filters.year,
     genre: INITIAL_GENRE || filters.genre,
@@ -92,7 +89,7 @@ const FilterPanel = ({ onFilter, filters }) => {
       </fieldset>
     </form>
   );
-};
+}
 
 FilterPanel.propTypes = {
   onFilter: PropTypes.func.isRequired,
@@ -104,5 +101,3 @@ FilterPanel.propTypes = {
     developer: PropTypes.string,
   }).isRequired,
 };
-
-export default FilterPanel;

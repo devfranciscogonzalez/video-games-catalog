@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { httpClient } from "../services/httpClient";
 import adaptGameDetails from "../adapters/adaptGameDetails";
 
-export const useFetchGameDetail = (gameId) => {
+export function useFetchGameDetail(gameId) {
   const [gameDetail, setGameDetail] = useState(null);
   const [trailers, setTrailers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,4 +32,4 @@ export const useFetchGameDetail = (gameId) => {
   }, [fetchGameData, gameId]);
 
   return { gameDetail, trailers, loading, error };
-};
+}

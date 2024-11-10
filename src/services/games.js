@@ -1,19 +1,16 @@
 import { FETCH_GAMES_ERROR_MESSAGE } from "../constants/constants";
 import { httpClient } from "./httpClient";
 
-export const fetchGames = async ({
+export async function fetchGames({
   year,
   genre,
   platform,
   tag,
   developer,
-  searchText,
   page = 1,
-}) => {
+}) {
   const baseParams = {
     ordering: "-metacritic",
-    search_precise: true,
-    search_exact: true,
     page_size: 20,
     page: page,
   };
@@ -25,7 +22,6 @@ export const fetchGames = async ({
     ...(platform && { platforms: platform }),
     ...(tag && { tags: tag }),
     ...(developer && { developers: developer }),
-    ...(searchText && { search: searchText }),
   };
 
   try {
@@ -37,4 +33,4 @@ export const fetchGames = async ({
   } catch (error) {
     throw new Error(FETCH_GAMES_ERROR_MESSAGE || error.message);
   }
-};
+}

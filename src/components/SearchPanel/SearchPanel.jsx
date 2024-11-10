@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Search from "../../assets/icons/Search";
 import "./SearchPanel.css";
 
-const SearchPanel = ({ onSearch, searchText }) => {
+export default function SearchPanel({ onSearch, searchText }) {
   const [formData, setFormData] = useState("");
 
   useEffect(() => {
@@ -37,11 +37,9 @@ const SearchPanel = ({ onSearch, searchText }) => {
       </button>
     </form>
   );
-};
+}
 
 SearchPanel.propTypes = {
   onSearch: PropTypes.func.isRequired,
   searchText: PropTypes.string.isRequired,
 };
-
-export default SearchPanel;

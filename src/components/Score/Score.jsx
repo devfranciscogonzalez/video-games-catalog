@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./Score.css";
 
-const Score = ({ score }) => {
+export default function Score({ score }) {
   const getMetacriticClass = () => {
     if (score >= 75) return "metacritic-high";
     if (score >= 50) return "metacritic-medium";
@@ -11,10 +11,8 @@ const Score = ({ score }) => {
   return (
     <span className={`metacritic-score ${getMetacriticClass()}`}>{score}</span>
   );
-};
+}
 
 Score.propTypes = {
   score: PropTypes.number.isRequired,
 };
-
-export default Score;

@@ -23,7 +23,12 @@ export default function GameDetail() {
   );
 
   return (
-    <Layout header={detailHeader} isGrid isBackgroundBlack> 
+    <Layout
+      header={detailHeader}
+      isGrid={true}
+      isBackgroundBlack={true}
+      border={true}
+    >
       <div className="detail-image-layout">
         <Image
           src={gameDetail.backgroundImage}

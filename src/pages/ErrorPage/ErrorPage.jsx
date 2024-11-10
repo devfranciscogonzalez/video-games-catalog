@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import Back from "../../assets/icons/Back";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import "./ErrorPage.css";
 import { useNavigate } from "react-router-dom";
+import Back from "../../assets/icons/Back";
+import { ErrorMessage } from "../../components";
+import { ERROR_PAGE_MESSAGE } from "../../constants/constants";
+import "./ErrorPage.css";
 
 export default function ErrorPage() {
   const navigate = useNavigate();
@@ -13,10 +14,7 @@ export default function ErrorPage() {
 
   return (
     <div className="error-page-container">
-      <ErrorMessage
-        message="Lo sentimos, pero no pudimos encontrar la página que estás buscando.
-        Puede que la página haya sido movida o eliminada."
-      />
+      <ErrorMessage message={ERROR_PAGE_MESSAGE} />
       <button
         className="error-page-button"
         onClick={handleGoBack}

@@ -6,6 +6,7 @@ export default function Layout({
   header,
   isGrid,
   isBackgroundBlack,
+  border,
   children,
 }) {
   return (
@@ -16,13 +17,14 @@ export default function Layout({
       <main className={`${isGrid ? "layout-grid" : "layout-flex"}`}>
         {children}
       </main>
-      <Footer />
+      <Footer border={border} />
     </div>
   );
 }
 Layout.propTypes = {
   header: PropTypes.node.isRequired,
   isGrid: PropTypes.bool,
+  border: PropTypes.bool,
   isBackgroundBlack: PropTypes.bool,
   children: PropTypes.node.isRequired,
 };

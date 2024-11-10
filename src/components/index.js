@@ -12,4 +12,6 @@ export { default as Pagination } from "./Pagination/Pagination";
 export { default as Score } from "./Score/Score";
 export { default as SearchPanel } from "./SearchPanel/SearchPanel";
 export { default as SelectFilter } from "./SelectFilter/SelectFilter";
+export { default as SelectFilterYear } from "./SelectFilter/SelectFilterYear";
 export { default as Trailer } from "./Trailer/Trailer";
+

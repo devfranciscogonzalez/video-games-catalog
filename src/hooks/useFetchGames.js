@@ -3,7 +3,7 @@ import adaptGames from "../adapters/adaptGames";
 import { fetchGames } from "../services/games";
 import { searchGames } from "../services/searchGames";
 
-export const useFetchGames = (filters, searchText, currentPage) => {
+export function useFetchGames(filters, searchText, currentPage) {
   const [games, setGames] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -25,10 +25,10 @@ export const useFetchGames = (filters, searchText, currentPage) => {
       setLoading(false);
     }
   }, [filters, searchText, currentPage]);
-  
+
   useEffect(() => {
     getGames();
   }, [getGames]);
 
   return { games, totalPages, loading, error };
-};
+}

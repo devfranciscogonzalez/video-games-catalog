@@ -35,13 +35,3 @@ GameCard.propTypes = {
     metacritic: PropTypes.number,
   }).isRequired,
 };
-
-{
-  /* <div className="genre-list">
-          {game.genres?.map((genre) => (
-            <span key={genre.id} className="genre-tag">
-              {genre.name}
-            </span>
-          ))}
-        </div> */
-}

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./Footer.css";
 
-const Footer = ({ border }) => {
+export default function Footer({ border }) {
   return (
     <footer className="footer">
       <div className={`footer-layout ${border ? "footer-layout-border" : ""}`}>
@@ -18,10 +18,8 @@ const Footer = ({ border }) => {
       </div>
     </footer>
   );
-};
+}
 
 Footer.propTypes = {
   border: PropTypes.bool,
 };
-
-export default Footer;

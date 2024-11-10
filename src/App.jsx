@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ErrorPage, GameDetail, Home } from "./pages";
 import "./styles/global.css";
-import { Home, GameDetail, ErrorPage } from "./pages";
 
 const router = createBrowserRouter(
   [
