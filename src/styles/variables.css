@@ -5,18 +5,14 @@
   --color-tertiary: hsla(0, 96%, 48%, 0.1);
   --color-text: hsl(0, 0%, 100%);
   --color-accent-rgba: hsla(0, 100%, 50%, 0.3);
-
   --color-background: hsl(0, 0%, 0%);
   --color-background-secondary: hsl(0, 100%, 50%, 0.6);
   --color-background-secondary-hover: hsla(0, 100%, 50%, 0.5);
   --color-bacground-tertiary: hsla(0, 96%, 48%, 0.1);
-
-  /* Color Focus */
   --color-focus: hsl(0, 100%, 50%);
 
   /* Font Variables */
   --font-family-base: "Lexend Variable", sans-serif;
-
   --font-size-root: 0.75rem;
   --font-size-small: 0.875rem;
   --font-size-medium: 1rem;
