@@ -1,10 +1,6 @@
 import { useParams } from "react-router-dom";
 import Back from "../../assets/icons/Back";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import Footer from "../../components/Footer/Footer";
-import Image from "../../components/Image/Image";
-import Loader from "../../components/Loader/Loader";
-import Trailer from "../../components/Trailer/Trailer";
+import { ErrorMessage, Image, Layout, Loader, Trailer } from "../../components";
 import { useFetchGameDetail } from "../../hooks/useFetchGameDetail";
 import "./GameDetail.css";
 
@@ -15,16 +11,19 @@ export default function GameDetail() {
   if (loading) return <Loader fullScreen />;
   if (error) return <ErrorMessage message={error} fullScreen />;
 
+  const detailHeader = (
+    <header className="detail-header">
+      <div className="detail-header-layout">
+        <a href="/" className="detail-anchor-back">
+          <Back width={36} height={36} />
+        </a>
+        <h1 className="detail-header-title">{gameDetail.name}</h1>
+      </div>
+    </header>
+  );
+
   return (
-    <div className="detail-layout">
-      <header className="detail-header">
-        <div className="detail-header-layout">
-          <a href="/" className="detail-anchor-back">
-            <Back width={36} height={36} />
-          </a>
-          <h1 className="detail-header-title">{gameDetail.name}</h1>
-        </div>
-      </header>
+    <Layout header={detailHeader}>
       <main className="detail-container">
         <div className="detail-image-layout">
           <Image
@@ -66,7 +65,6 @@ export default function GameDetail() {
           <Trailer trailers={trailers} />
         </div>
       </main>
-      <Footer />
-    </div>
+    </Layout>
   );
 }

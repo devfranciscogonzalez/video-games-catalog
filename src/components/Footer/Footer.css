@@ -5,7 +5,6 @@
   width: 100%;
   height: 5rem;
   background-color: var(--color-background);
-
 }
 
 .footer-layout {
@@ -17,4 +16,20 @@
   max-width: var(--max-width-container);
   margin: auto;
   padding: 0 var(--padding-medium);
+}
+
+.footer-layout-border {
+  border-top: 1px solid var(--color-primary);
+}
+
+.footer-anchor {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.footer-anchor:hover {
+  text-decoration: underline;
+}
+
+@media (width <= 768px) {
 }

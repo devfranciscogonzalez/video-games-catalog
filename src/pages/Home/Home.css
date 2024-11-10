@@ -1,8 +1,8 @@
-.home-layout {
+/* .home-layout {
   display: grid;
   min-height: 100dvh;
   grid-template-rows: auto 1fr auto;
-}
+} */
 
 .home-container {
   display: flex;

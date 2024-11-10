@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import FilterPanel from "../../components/FilterPanel/FilterPanel";
-import Footer from "../../components/Footer/Footer";
-import GameList from "../../components/GameList/GameList";
-import Loader from "../../components/Loader/Loader";
-import NavBar from "../../components/NavBar/NavBar";
-import Pagination from "../../components/Pagination/Pagination";
-import SearchPanel from "../../components/SearchPanel/SearchPanel";
+import {
+  ErrorMessage,
+  FilterPanel,
+  GameList,
+  Loader,
+  NavBar,
+  Pagination,
+  SearchPanel,
+  Layout
+} from "../../components";
 import {
   INITIAL_DEVELOPER,
   INITIAL_GENRE,
@@ -73,11 +75,14 @@ export default function Home() {
     setCurrentPage(1);
   };
 
+  const homeHeader = (
+    <NavBar onLogoClick={handleLogoClick}>
+      <SearchPanel onSearch={handleSearch} searchText={searchText} />
+    </NavBar>
+  );
+
   return (
-    <div className="home-layout">
-      <NavBar onLogoClick={handleLogoClick}>
-        <SearchPanel onSearch={handleSearch} searchText={searchText} />
-      </NavBar>
+    <Layout header={homeHeader}>
       <main className="home-container">
         {loading && <Loader />}
         {error && <ErrorMessage message={error} />}
@@ -99,7 +104,6 @@ export default function Home() {
           </>
         )}
       </main>
-      <Footer />
-    </div>
+    </Layout>
   );
 }
