@@ -128,4 +128,4 @@ Una vez que el servidor esté en ejecución, abre tu navegador y visita <http://
 
 **Francisco González**  
 [devfranciscogonzalez@gmail.com](mailto:devfranciscogonzalez@gmail.com)  
-[https://www.franciscogonzalez.dev/](https://www.franciscogonzalez.dev/)
+[www.franciscogonzalez.dev/](https://www.franciscogonzalez.dev/)
