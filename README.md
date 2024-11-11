@@ -8,15 +8,13 @@
 
   <i>Desarrollado con las siguientes tecnologías:</i>
 
-  <div>
-
  ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
  ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 </div>
 
 ## Descripción General
 
-Este proyecto es un catálogo que permite a los usuarios explorar la base de datos más grande de videojuegos, ordenados de mayor a menor puntuación según Metacritic. Además, ofrece la capacidad de filtrar por año, género, plataformas, tags y empresa desarrolladora, y una funcionalidad de búsqueda que permite encontrar videojuegos por texto. Cada videojuego tiene una página de detalles que muestra información relevante como el título, género, puntuación, portada, plataformas, año de lanzamiento y trailers.
+Este proyecto es un catálogo que permite a los usuarios explorar la base de datos más grande de videojuegos, ordenados de mayor a menor puntuación según Metacritic. Además, ofrece la capacidad de filtrar por año, género, plataformas, tags y empresa desarrolladora, y una funcionalidad de búsqueda. Cada videojuego tiene una página de detalles que muestra información relevante como el título, género, puntuación, portada, plataformas, año de lanzamiento y trailers.
 
 ## Tecnologías Utilizadas
 
@@ -25,6 +23,12 @@ Este proyecto es un catálogo que permite a los usuarios explorar la base de dat
 - **Enrutador**: React Router
 - **Despliegue**: Vercel
 - **API de datos**: [RAWG Video Games Database](https://rawg.io/apidocs)
+
+## Justificación Tecnologías Utilizadas
+
+**Axios:** Opté Axios como cliente HTTP por su simplicidad al manejar parámetros de consulta (Query Parameters) en las APIs y su facilidad para crear configuraciones reutilizables de solicitudes.
+
+**React Router:** Elegí React Router porque es una solución ampliamente aceptada en el ecosistema de React para gestionar la navegación en aplicaciones de una sola página. Su capacidad para manejar rutas dinámicas fue necesaria para el desarrollo del proyecto.
 
 ## Estructura del Proyecto
 
@@ -89,9 +93,39 @@ El proyecto sigue una estructura organizada en diferentes carpetas y archivos pa
 
 ### Utils
 
-- `storage.js`: Utilidad para manejar almacenamiento local o de sesión.
+- `storage.js`: Utilidad para manejar almacenamiento local.
 
 ### Archivos Principales
 
 - `App.jsx`: Componente principal que maneja el enrutamiento y la estructura de la aplicación.
 - `main.jsx`: Punto de entrada de la aplicación que inicia el renderizado de React.
+
+## Clonación e Instalación del Proyecto
+
+Para configurar este proyecto en tu entorno local, sigue estos pasos:
+
+1. **Clona el repositorio**:
+
+    ```bash
+    git clone https://github.com/devfranciscogonzalez/video-games-catalog.git
+    cd video-games-catalog 
+    ```
+
+2. **Instala las dependencias:**
+  Ejecuta el siguiente comando para instalar las dependencias necesarias con npm:
+      ```bash
+      npm install
+      ```
+3. **Inicia el servidor de desarrollo:**
+Este proyecto utiliza Vite, por lo que puedes ejecutar el servidor de desarrollo con:
+    ```bash
+    npm run dev
+    ```
+4. **Accede a la aplicación:**
+Una vez que el servidor esté en ejecución, abre tu navegador y visita <http://localhost:5173> para ver la aplicación.
+
+¡Gracias por visitar el proyecto!. Si tienes alguna sugerencia o comentario, no dudes en ponerte en contacto.
+
+**Francisco González**  
+[devfranciscogonzalez@gmail.com](mailto:devfranciscogonzalez@gmail.com)  
+[https://www.franciscogonzalez.dev/](https://www.franciscogonzalez.dev/)
