@@ -1,4 +1,21 @@
-# Catálogo de Videojuegos - Documentación del Proyecto
+<div align='center'>
+  
+   [![www-franciscogonzalez-dev-1.png](https://i.postimg.cc/K8qx1LQK/www-franciscogonzalez-dev-1.png)](https://www.franciscogonzalez.dev/)
+
+  <h1>Catálogo de Videojuegos</h1>
+
+ 👉 [Visita mi portafolio aquí](https://www.franciscogonzalez.dev/)
+
+  <i>Desarrollado con las siguientes tecnologías:</i>
+
+  <div>
+  <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
+  
+  [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+  </div>
+</div>
+
+
 
 ## Descripción General
 Este proyecto es un catálogo de videojuegos que permite a los usuarios explorar una lista de los videojuegos del año 2024, ordenados de mayor a menor puntuación según Metacritic. Además, ofrece la capacidad de filtrar por año, género, plataformas, tags y empresa desarrolladora, y una funcionalidad de búsqueda que permite encontrar videojuegos por texto. Cada videojuego tiene una página de detalles que muestra información relevante como el título, género, puntuación, portada, plataformas, año de lanzamiento y trailers.
@@ -12,124 +29,6 @@ Este proyecto es un catálogo de videojuegos que permite a los usuarios explorar
 
 ## Estructura del Proyecto
 El proyecto sigue una estructura organizada en diferentes carpetas y archivos para garantizar la mantenibilidad y la escalabilidad:
-
-video-games-catalog/
-│
-├── .gitignore
-├── eslint.config.js
-├── estructura.txt
-├── index.html
-├── package-lock.json
-├── package.json
-├── README.md
-├── vercel.json
-├── vite.config.js
-│
-├── public/
-│   └── favicon.svg
-│
-└── src/
-    ├── App.jsx
-    ├── main.jsx
-    │
-    ├── adapters/
-    │   ├── adaptGameDetails.js
-    │   └── adaptGames.js
-    │
-    ├── assets/
-    │   ├── icons/
-    │   │   ├── Back.jsx
-    │   │   ├── Filter.jsx
-    │   │   ├── Joystick.jsx
-    │   │   ├── Next.jsx
-    │   │   ├── Previous.jsx
-    │   │   ├── Retry.jsx
-    │   │   └── Search.jsx
-    │   │
-    │   └── images/
-    │       └── no-image.svg
-    │
-    ├── components/
-    │   ├── index.js
-    │   ├── ErrorMessage/
-    │   │   ├── ErrorMessage.css
-    │   │   └── ErrorMessage.jsx
-    │   ├── FilterPanel/
-    │   │   ├── FilterPanel.css
-    │   │   └── FilterPanel.jsx
-    │   ├── Footer/
-    │   │   ├── Footer.css
-    │   │   └── Footer.jsx
-    │   ├── GameCard/
-    │   │   ├── GameCard.css
-    │   │   └── GameCard.jsx
-    │   ├── GameList/
-    │   │   ├── GameList.css
-    │   │   └── GameList.jsx
-    │   ├── Image/
-    │   │   ├── Image.css
-    │   │   └── Image.jsx
-    │   ├── Layout/
-    │   │   ├── Layout.css
-    │   │   └── Layout.jsx
-    │   ├── Loader/
-    │   │   ├── Loader.css
-    │   │   └── Loader.jsx
-    │   ├── NavBar/
-    │   │   ├── NavBar.css
-    │   │   └── NavBar.jsx
-    │   ├── Pagination/
-    │   │   ├── Pagination.css
-    │   │   └── Pagination.jsx
-    │   ├── Score/
-    │   │   ├── Score.css
-    │   │   └── Score.jsx
-    │   ├── SearchPanel/
-    │   │   ├── SearchPanel.css
-    │   │   └── SearchPanel.jsx
-    │   ├── SelectFilter/
-    │   │   ├── SelectFilter.css
-    │   │   ├── SelectFilter.jsx
-    │   │   └── SelectFilterYear.jsx
-    │   └── Trailer/
-    │       ├── Trailer.css
-    │       └── Trailer.jsx
-    │
-    ├── constants/
-    │   ├── errorMessages.js
-    │   └── filterDefaults.js
-    │
-    ├── hooks/
-    │   ├── useFetchFilterOption.js
-    │   ├── useFetchGameDetail.js
-    │   └── useFetchGames.js
-    │
-    ├── pages/
-    │   ├── index.js
-    │   ├── ErrorPage/
-    │   │   ├── ErrorPage.css
-    │   │   └── ErrorPage.jsx
-    │   ├── GameDetail/
-    │   │   ├── GameDetail.css
-    │   │   └── GameDetail.jsx
-    │   └── Home/
-    │       ├── Home.css
-    │       └── Home.jsx
-    │
-    ├── services/
-    |   |-─ api/
-    │   |     └── httpClient.js
-    │   ├── filter.js
-    │   ├── games.js
-    │   ├── gamesDetails.js
-    │   └── searchGames.js
-    │
-    ├── styles/
-    │   ├── global.css
-    │   └── variables.css
-    │
-    └── utils/
-        └── storage.js
 
 
 ### Adapters
